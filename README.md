@@ -1,6 +1,7 @@
 ![License: GPL v3](https://img.shields.io/badge/License-GPL_v3-blue.svg)
 ![latest build](https://github.com/S7R4nG3/terraform-resources/actions/workflows/test.yml/badge.svg)
 ![latest release](https://img.shields.io/github/release-date/S7R4nG3/tf-guard)
+[![Go Reference](https://pkg.go.dev/badge/github.com/S7R4nG3/tf-guard.svg)](https://pkg.go.dev/github.com/S7R4nG3/tf-guard)
 # tf-guard
 
 A package for writing Terraform Resource evaluation rules in native Golang.
