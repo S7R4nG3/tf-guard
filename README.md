@@ -12,6 +12,10 @@ This causes headaches when trying to write more complicated logic around resourc
 
 This package serves as my solution to that problem, allowing the flexibility of the full Golang language to allow users to write their own custom logic and rules for their resources within a provided Terraform plan.
 
+This package intakes your Terraform plan (in JSON formatting) and your own defined resource rules (as functions extending the `Rule` type) and returns a simple ordered evaluation of those rules against the resources defined within your plan.
+
+By removing the overhead of having to dig through the resources and their attributes in your plan files, you can instead focus on writing rules to evaluate your resources and take appropriate actions based on the results.
+
 ## Usage
 
 The package requires that a JSON formatted Terraform plan file be collected containing the resources that are to be evaluated. This can be accomplished with 2 Terraform commands:
@@ -139,4 +143,4 @@ This codebase is created and maintained by [Dave Streng](https://www.linkedin.co
 
 GNU General Public License v3.0 or later
 
-See LICENSE to see the full text.
+See [LICENSE](./LICENSE) to see the full text.

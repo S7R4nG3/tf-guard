@@ -7,7 +7,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-// The primary Scan function intakes the specified Plan and
+// The primary Scan method intakes the specified Plan and
 // Modules file paths and utilizes the tfresources project
 // to parse out the underlying Terraform resources and link
 // them to any declared modules.

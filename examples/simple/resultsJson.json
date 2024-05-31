@@ -1,0 +1,355 @@
+{
+    "ByResource": {
+        "aws_s3_bucket.default": [
+            {
+                "Name": "S3 buckets must be tagged at all times.",
+                "Valid": true,
+                "Severity": "Minor",
+                "Resource": {
+                    "Module": {
+                        "Source": "",
+                        "Version": "",
+                        "Dir": "",
+                        "Key": ""
+                    },
+                    "Planned": {
+                        "address": "aws_s3_bucket.default",
+                        "mode": "managed",
+                        "type": "aws_s3_bucket",
+                        "name": "default",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "bucket": "my-test-bucket",
+                            "force_destroy": false,
+                            "tags": null,
+                            "timeouts": null
+                        },
+                        "sensitive_values": {
+                            "cors_rule": [],
+                            "grant": [],
+                            "lifecycle_rule": [],
+                            "logging": [],
+                            "object_lock_configuration": [],
+                            "replication_configuration": [],
+                            "server_side_encryption_configuration": [],
+                            "tags_all": {},
+                            "versioning": [],
+                            "website": []
+                        }
+                    }
+                },
+                "NotApplicable": false
+            },
+            {
+                "Name": "All resources must include an Owner tag.",
+                "Valid": false,
+                "Severity": "Major",
+                "Resource": {
+                    "Module": {
+                        "Source": "",
+                        "Version": "",
+                        "Dir": "",
+                        "Key": ""
+                    },
+                    "Planned": {
+                        "address": "aws_s3_bucket.default",
+                        "mode": "managed",
+                        "type": "aws_s3_bucket",
+                        "name": "default",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "bucket": "my-test-bucket",
+                            "force_destroy": false,
+                            "tags": null,
+                            "timeouts": null
+                        },
+                        "sensitive_values": {
+                            "cors_rule": [],
+                            "grant": [],
+                            "lifecycle_rule": [],
+                            "logging": [],
+                            "object_lock_configuration": [],
+                            "replication_configuration": [],
+                            "server_side_encryption_configuration": [],
+                            "tags_all": {},
+                            "versioning": [],
+                            "website": []
+                        }
+                    }
+                },
+                "NotApplicable": false
+            }
+        ],
+        "aws_s3_object.obj": [
+            {
+                "Name": "S3 Bucket Objects must always be tagged.",
+                "Valid": true,
+                "Severity": "Minor",
+                "Resource": {
+                    "Module": {
+                        "Source": "",
+                        "Version": "",
+                        "Dir": "",
+                        "Key": ""
+                    },
+                    "Planned": {
+                        "address": "aws_s3_object.obj",
+                        "mode": "managed",
+                        "type": "aws_s3_object",
+                        "name": "obj",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "acl": "private",
+                            "cache_control": null,
+                            "content": null,
+                            "content_base64": null,
+                            "content_disposition": null,
+                            "content_encoding": null,
+                            "content_language": null,
+                            "force_destroy": false,
+                            "key": "a/magic/object/key",
+                            "metadata": null,
+                            "object_lock_legal_hold_status": null,
+                            "object_lock_mode": null,
+                            "object_lock_retain_until_date": null,
+                            "source": "./outputs.tf",
+                            "source_hash": null,
+                            "tags": null,
+                            "website_redirect": null
+                        },
+                        "sensitive_values": {
+                            "tags_all": {}
+                        }
+                    }
+                },
+                "NotApplicable": false
+            },
+            {
+                "Name": "All resources must include an Owner tag.",
+                "Valid": false,
+                "Severity": "Major",
+                "Resource": {
+                    "Module": {
+                        "Source": "",
+                        "Version": "",
+                        "Dir": "",
+                        "Key": ""
+                    },
+                    "Planned": {
+                        "address": "aws_s3_object.obj",
+                        "mode": "managed",
+                        "type": "aws_s3_object",
+                        "name": "obj",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "acl": "private",
+                            "cache_control": null,
+                            "content": null,
+                            "content_base64": null,
+                            "content_disposition": null,
+                            "content_encoding": null,
+                            "content_language": null,
+                            "force_destroy": false,
+                            "key": "a/magic/object/key",
+                            "metadata": null,
+                            "object_lock_legal_hold_status": null,
+                            "object_lock_mode": null,
+                            "object_lock_retain_until_date": null,
+                            "source": "./outputs.tf",
+                            "source_hash": null,
+                            "tags": null,
+                            "website_redirect": null
+                        },
+                        "sensitive_values": {
+                            "tags_all": {}
+                        }
+                    }
+                },
+                "NotApplicable": false
+            }
+        ]
+    },
+    "ByRule": {
+        "All resources must include an Owner tag.": [
+            {
+                "Name": "All resources must include an Owner tag.",
+                "Valid": false,
+                "Severity": "Major",
+                "Resource": {
+                    "Module": {
+                        "Source": "",
+                        "Version": "",
+                        "Dir": "",
+                        "Key": ""
+                    },
+                    "Planned": {
+                        "address": "aws_s3_object.obj",
+                        "mode": "managed",
+                        "type": "aws_s3_object",
+                        "name": "obj",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "acl": "private",
+                            "cache_control": null,
+                            "content": null,
+                            "content_base64": null,
+                            "content_disposition": null,
+                            "content_encoding": null,
+                            "content_language": null,
+                            "force_destroy": false,
+                            "key": "a/magic/object/key",
+                            "metadata": null,
+                            "object_lock_legal_hold_status": null,
+                            "object_lock_mode": null,
+                            "object_lock_retain_until_date": null,
+                            "source": "./outputs.tf",
+                            "source_hash": null,
+                            "tags": null,
+                            "website_redirect": null
+                        },
+                        "sensitive_values": {
+                            "tags_all": {}
+                        }
+                    }
+                },
+                "NotApplicable": false
+            },
+            {
+                "Name": "All resources must include an Owner tag.",
+                "Valid": false,
+                "Severity": "Major",
+                "Resource": {
+                    "Module": {
+                        "Source": "",
+                        "Version": "",
+                        "Dir": "",
+                        "Key": ""
+                    },
+                    "Planned": {
+                        "address": "aws_s3_bucket.default",
+                        "mode": "managed",
+                        "type": "aws_s3_bucket",
+                        "name": "default",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "bucket": "my-test-bucket",
+                            "force_destroy": false,
+                            "tags": null,
+                            "timeouts": null
+                        },
+                        "sensitive_values": {
+                            "cors_rule": [],
+                            "grant": [],
+                            "lifecycle_rule": [],
+                            "logging": [],
+                            "object_lock_configuration": [],
+                            "replication_configuration": [],
+                            "server_side_encryption_configuration": [],
+                            "tags_all": {},
+                            "versioning": [],
+                            "website": []
+                        }
+                    }
+                },
+                "NotApplicable": false
+            }
+        ],
+        "S3 Bucket Objects must always be tagged.": [
+            {
+                "Name": "S3 Bucket Objects must always be tagged.",
+                "Valid": true,
+                "Severity": "Minor",
+                "Resource": {
+                    "Module": {
+                        "Source": "",
+                        "Version": "",
+                        "Dir": "",
+                        "Key": ""
+                    },
+                    "Planned": {
+                        "address": "aws_s3_object.obj",
+                        "mode": "managed",
+                        "type": "aws_s3_object",
+                        "name": "obj",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "acl": "private",
+                            "cache_control": null,
+                            "content": null,
+                            "content_base64": null,
+                            "content_disposition": null,
+                            "content_encoding": null,
+                            "content_language": null,
+                            "force_destroy": false,
+                            "key": "a/magic/object/key",
+                            "metadata": null,
+                            "object_lock_legal_hold_status": null,
+                            "object_lock_mode": null,
+                            "object_lock_retain_until_date": null,
+                            "source": "./outputs.tf",
+                            "source_hash": null,
+                            "tags": null,
+                            "website_redirect": null
+                        },
+                        "sensitive_values": {
+                            "tags_all": {}
+                        }
+                    }
+                },
+                "NotApplicable": false
+            }
+        ],
+        "S3 buckets must be tagged at all times.": [
+            {
+                "Name": "S3 buckets must be tagged at all times.",
+                "Valid": true,
+                "Severity": "Minor",
+                "Resource": {
+                    "Module": {
+                        "Source": "",
+                        "Version": "",
+                        "Dir": "",
+                        "Key": ""
+                    },
+                    "Planned": {
+                        "address": "aws_s3_bucket.default",
+                        "mode": "managed",
+                        "type": "aws_s3_bucket",
+                        "name": "default",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "bucket": "my-test-bucket",
+                            "force_destroy": false,
+                            "tags": null,
+                            "timeouts": null
+                        },
+                        "sensitive_values": {
+                            "cors_rule": [],
+                            "grant": [],
+                            "lifecycle_rule": [],
+                            "logging": [],
+                            "object_lock_configuration": [],
+                            "replication_configuration": [],
+                            "server_side_encryption_configuration": [],
+                            "tags_all": {},
+                            "versioning": [],
+                            "website": []
+                        }
+                    }
+                },
+                "NotApplicable": false
+            }
+        ]
+    },
+    "TotalResults": 4,
+    "ValidResults": 2,
+    "Score": 50
+}
