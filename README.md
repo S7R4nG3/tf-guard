@@ -99,6 +99,36 @@ func main(){
 }
 ```
 
+```sh
+TF Guard Rule Evaluation for Resources:
+
+[ ✅ ]  Rule: S3 buckets must be tagged at all times.
+	Valid: true
+	Severity: Minor
+	Resource: aws_s3_bucket.default
+	Type: aws_s3_bucket
+
+[ ❌ ]  Rule: All resources must include an Owner tag.
+	Valid: false
+	Severity: Major
+	Resource: aws_s3_bucket.default
+	Type: aws_s3_bucket
+
+[ ✅ ]  Rule: S3 Bucket Objects must always be tagged.
+	Valid: true
+	Severity: Minor
+	Resource: aws_s3_object.obj
+	Type: aws_s3_object
+
+[ ❌ ]  Rule: All resources must include an Owner tag.
+	Valid: false
+	Severity: Major
+	Resource: aws_s3_object.obj
+	Type: aws_s3_object
+
+Overall Resource Score: 50%
+```
+
 Check out the [examples](./examples) on how you can integrate this package into your own codebase.
 
 ## Author
