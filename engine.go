@@ -23,15 +23,18 @@ import (
 // system or slow executions.
 func (d *Deployment) ruleEngine(resources []tfresources.Resource, rules []Rule) {
 	d.debugLogger("Begin Rule Engine execution...")
-	wg := new(sync.WaitGroup)
+	var wg sync.WaitGroup
 	out := make(chan Result)
 	for _, res := range resources {
-		thisResource := res.Planned
-		d.debugLogger(fmt.Sprintf("Starting rule execution for resource -- %s", thisResource.Address))
-		wg.Add(1)
-		go d.worker(rules, res, out, wg)
+		d.debugLogger(fmt.Sprintf("Starting rule execution for resource -- %s", res.Planned.Address))
+		wg.Go(func() {
+			d.worker(rules, res, out)
+		})
 	}
-	go wait(out, wg)
+	go func() {
+		wg.Wait()
+		close(out)
+	}()
 	results := []Result{}
 	for o := range out {
 		results = append(results, o)
@@ -40,7 +43,7 @@ func (d *Deployment) ruleEngine(resources []tfresources.Resource, rules []Rule) 
 	d.Results = results
 }
 
-func (d *Deployment) worker(rules []Rule, res tfresources.Resource, out chan<- Result, wg *sync.WaitGroup) {
+func (d *Deployment) worker(rules []Rule, res tfresources.Resource, out chan<- Result) {
 	thisResource := res.Planned
 	for _, rule := range rules {
 		result := rule(res)
@@ -57,10 +60,4 @@ func (d *Deployment) worker(rules []Rule, res tfresources.Resource, out chan<- R
 			out <- result
 		}
 	}
-	wg.Done()
-}
-
-func wait(out chan<- Result, wg *sync.WaitGroup) {
-	defer close(out)
-	wg.Wait()
 }
