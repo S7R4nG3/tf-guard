@@ -1,5 +1,5 @@
 ![License: GPL v3](https://img.shields.io/badge/License-GPL_v3-blue.svg)
-![latest build](https://github.com/S7R4nG3/terraform-resources/actions/workflows/test.yml/badge.svg)
+![latest build](https://github.com/S7R4nG3/tf-guard/actions/workflows/test.yml/badge.svg)
 ![latest release](https://img.shields.io/github/release-date/S7R4nG3/tf-guard)
 [![Go Reference](https://pkg.go.dev/badge/github.com/S7R4nG3/tf-guard.svg)](https://pkg.go.dev/github.com/S7R4nG3/tf-guard)
 # tf-guard
@@ -102,6 +102,48 @@ func main(){
     fmt.Println(d.ResultsJson)  // JSON output can be written to a file if desired, or parsed directly
 }
 ```
+
+By default the StdOut results only detail the rules that were evaluated as **invalid**, keeping the output focused on the resources that need attention. The overall score is always reported at the very end and is calculated across _all_ results, not just the ones displayed.
+
+```sh
+TF Guard Rule Evaluation for Resources:
+
+[ ❌ ]  Rule: All resources must include an Owner tag.
+	Valid: false
+	Severity: Major
+	Resource: aws_s3_bucket.default
+	Type: aws_s3_bucket
+
+[ ❌ ]  Rule: All resources must include an Owner tag.
+	Valid: false
+	Severity: Major
+	Resource: aws_s3_object.obj
+	Type: aws_s3_object
+
+Overall Resource Score: 50%
+```
+
+### Output Toggles
+
+Two toggles are available on the `Deployment` to control this output:
+
+| Toggle | Default | Description |
+| --- | --- | --- |
+| `VerboseStdOut` | `false` | Include _every_ rule result in the output, both valid and invalid, rather than only the invalid ones. |
+| `DisableStdOut` | `false` | Suppress writing the results to StdOut entirely - useful when consuming `ResultsJson` programmatically. The `ResultsStdOut` string is still populated. |
+
+```go
+d := Deployment{
+    PlanFile: "./myplanfile.json",
+    Rules: []Rule{
+        ...
+    },
+    VerboseStdOut: true,
+}
+d.Scan()
+```
+
+With `VerboseStdOut` enabled, valid results are included alongside the invalid ones:
 
 ```sh
 TF Guard Rule Evaluation for Resources:

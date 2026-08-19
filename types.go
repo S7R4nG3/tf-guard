@@ -110,6 +110,11 @@ type Deployment struct {
 	// means.
 	DisableStdOut bool
 
+	// A simple toggle to include ALL rule results in the StdOut
+	// output. By default only invalid results are detailed, with
+	// the overall score always reported at the end.
+	VerboseStdOut bool
+
 	// A simple Debug logging toggle for troubleshooting.
 	Debug bool
 

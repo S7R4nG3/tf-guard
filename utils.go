@@ -16,8 +16,11 @@ func (d *Deployment) stringResultFormatter() {
 	for _, res := range d.Results {
 		c := color.New(color.FgYellow)
 		if res.Valid {
-			c = color.New(color.FgGreen)
 			validCounter++
+			if !d.VerboseStdOut {
+				continue
+			}
+			c = color.New(color.FgGreen)
 			body.WriteString("\n\n[ ✅ ]")
 		} else {
 			body.WriteString("\n\n[ ❌ ]")
