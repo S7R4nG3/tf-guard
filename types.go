@@ -58,6 +58,13 @@ type Result struct {
 	// allow you to identify the resource being evaluated.
 	Resource tfresources.Resource
 
+	// An optional remediation message providing guidance on how
+	// to resolve this result. Defaults to an empty string, in
+	// which case it is omitted from the StdOut output entirely,
+	// while still being represented as an empty string within
+	// the JSON output.
+	RemediationMessage string
+
 	// A simple Not Applicable boolean toggle, used to flag
 	// resources that a particular rule execution does not apply
 	// to. Any results with this toggled to `true` will be ignored

@@ -34,6 +34,9 @@ func (d *Deployment) stringResultFormatter() {
 				body.WriteString(c.Sprintf("\n\t\tVersion: %v", thisModule.Version))
 			}
 		}
+		if res.RemediationMessage != "" {
+			body.WriteString(c.Sprintf("\n\tRemediation: %s", res.RemediationMessage))
+		}
 	}
 	score := (float64(validCounter) / float64(len(d.Results))) * 100
 	body.WriteString(color.New(color.FgCyan).Add(color.Bold).Sprintf("\n\nOverall Resource Score: %.0f%%\n", score))

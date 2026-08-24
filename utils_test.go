@@ -34,6 +34,20 @@ func TestStringResultFormatter(t *testing.T) {
 			},
 		},
 	}
+	remediationResults := []Result{
+		{
+			Name:               "failing rule with remediation",
+			Valid:              false,
+			Severity:           Severity.Major,
+			RemediationMessage: "Add an Owner tag to this resource.",
+			Resource: tfresources.Resource{
+				Planned: tfjson.StateResource{
+					Address: "aws_s3_bucket.default",
+					Type:    "aws_s3_bucket",
+				},
+			},
+		},
+	}
 	tests := []struct {
 		name       string
 		deployment Deployment
@@ -63,6 +77,21 @@ func TestStringResultFormatter(t *testing.T) {
 			},
 			want:    []string{"Overall Resource Score: 100%"},
 			notWant: []string{"passing rule"},
+		},
+		{
+			name: "A provided remediation message should be included in the output.",
+			deployment: Deployment{
+				Results: remediationResults,
+			},
+			want: []string{"Remediation: Add an Owner tag to this resource."},
+		},
+		{
+			name: "An empty remediation message should be omitted from the output.",
+			deployment: Deployment{
+				Results:       testResults,
+				VerboseStdOut: true,
+			},
+			notWant: []string{"Remediation:"},
 		},
 	}
 

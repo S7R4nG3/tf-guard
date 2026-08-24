@@ -85,6 +85,7 @@ func MyCustomTFRule(r tfresources.Resource) tfGuard.Result {
     return tfGuard.Result {               // A Result struct must be returned for each Rule type
         Name: "This is my custom rule.",  // A simple name for this rule
         Valid: true,                      // A boolean Valid argument for rule validity
+        RemediationMessage: "Do X to fix this.",  // An optional message detailing how to resolve this result
         ...                               // Other attributes can be defined if required - see Result struct
     }
 }
@@ -121,6 +122,28 @@ TF Guard Rule Evaluation for Resources:
 	Type: aws_s3_object
 
 Overall Resource Score: 50%
+```
+
+### Remediation Messages
+
+Any Result can carry an optional `RemediationMessage` detailing how to resolve the finding. When provided it is appended to the result's StdOut entry, and it is always present in the JSON output - as an empty string when it isn't set.
+
+```go
+return tfGuard.Result{
+    Name:               "All resources must include an Owner tag.",
+    Valid:              false,
+    Severity:           tfGuard.Severity.Major,
+    RemediationMessage: "Add an `owner` tag to this resource identifying the owning team.",
+}
+```
+
+```sh
+[ ❌ ]  Rule: All resources must include an Owner tag.
+	Valid: false
+	Severity: Major
+	Resource: aws_s3_bucket.default
+	Type: aws_s3_bucket
+	Remediation: Add an `owner` tag to this resource identifying the owning team.
 ```
 
 ### Output Toggles

@@ -39,6 +39,7 @@
                         }
                     }
                 },
+                "RemediationMessage": "",
                 "NotApplicable": false
             },
             {
@@ -79,6 +80,7 @@
                         }
                     }
                 },
+                "RemediationMessage": "",
                 "NotApplicable": false
             }
         ],
@@ -125,6 +127,7 @@
                         }
                     }
                 },
+                "RemediationMessage": "",
                 "NotApplicable": false
             },
             {
@@ -169,6 +172,7 @@
                         }
                     }
                 },
+                "RemediationMessage": "",
                 "NotApplicable": false
             }
         ]
@@ -217,6 +221,7 @@
                         }
                     }
                 },
+                "RemediationMessage": "",
                 "NotApplicable": false
             },
             {
@@ -257,6 +262,7 @@
                         }
                     }
                 },
+                "RemediationMessage": "",
                 "NotApplicable": false
             }
         ],
@@ -303,6 +309,7 @@
                         }
                     }
                 },
+                "RemediationMessage": "",
                 "NotApplicable": false
             }
         ],
@@ -345,6 +352,7 @@
                         }
                     }
                 },
+                "RemediationMessage": "",
                 "NotApplicable": false
             }
         ]
