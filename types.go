@@ -133,8 +133,24 @@ type Deployment struct {
 // An internal data type used to collect the results of the
 // rule execution into JSON formatting.
 type jsonResponse struct {
-	ByResource   map[string][]Result
-	ByRule       map[string][]Result
+	// All results keyed by the address of the resource they
+	// were evaluated against.
+	ByResource map[string][]Result
+
+	// All results keyed by the name of the rule that produced
+	// them.
+	ByRule map[string][]Result
+
+	// All results that evaluated as valid, allowing the output
+	// to be parsed for passing rules without having to filter
+	// the resource or rule groupings.
+	ByValid []Result
+
+	// All results that evaluated as invalid, allowing the output
+	// to be parsed for failing rules without having to filter
+	// the resource or rule groupings.
+	ByInvalid []Result
+
 	TotalResults int
 	ValidResults int
 	Score        float64

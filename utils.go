@@ -49,11 +49,16 @@ func (d *Deployment) jsonResultFormatter() {
 	j := jsonResponse{
 		ByResource: make(map[string][]Result),
 		ByRule:     make(map[string][]Result),
+		ByValid:    []Result{},
+		ByInvalid:  []Result{},
 	}
 	validCounter := 0
 	for _, res := range d.Results {
 		if res.Valid {
 			validCounter++
+			j.ByValid = append(j.ByValid, res)
+		} else {
+			j.ByInvalid = append(j.ByInvalid, res)
 		}
 		thisResource := res.Resource.Planned
 		j.ByResource[thisResource.Address] = append(j.ByResource[thisResource.Address], res)

@@ -1,6 +1,7 @@
 package tfGuard
 
 import (
+	"encoding/json"
 	"strings"
 	"testing"
 
@@ -111,6 +112,110 @@ func TestStringResultFormatter(t *testing.T) {
 			if strings.Contains(got, notWant) {
 				t.Errorf("Test Error -- %s:\ngot: %v\n::\nexpected NOT to contain: %v\n", tt.name, got, notWant)
 			}
+		}
+	}
+}
+
+func TestJsonResultFormatter(t *testing.T) {
+	testResults := []Result{
+		{
+			Name:     "passing rule",
+			Valid:    true,
+			Severity: Severity.Minor,
+			Resource: tfresources.Resource{
+				Planned: tfjson.StateResource{
+					Address: "aws_s3_bucket.default",
+					Type:    "aws_s3_bucket",
+				},
+			},
+		},
+		{
+			Name:     "failing rule",
+			Valid:    false,
+			Severity: Severity.Major,
+			Resource: tfresources.Resource{
+				Planned: tfjson.StateResource{
+					Address: "aws_s3_bucket.default",
+					Type:    "aws_s3_bucket",
+				},
+			},
+		},
+		{
+			Name:     "failing rule",
+			Valid:    false,
+			Severity: Severity.Major,
+			Resource: tfresources.Resource{
+				Planned: tfjson.StateResource{
+					Address: "aws_s3_object.obj",
+					Type:    "aws_s3_object",
+				},
+			},
+		},
+	}
+	tests := []struct {
+		name        string
+		deployment  Deployment
+		wantValid   []string
+		wantInvalid []string
+	}{
+		{
+			name: "Results should be grouped by validity.",
+			deployment: Deployment{
+				Results: testResults,
+			},
+			wantValid:   []string{"passing rule"},
+			wantInvalid: []string{"failing rule", "failing rule"},
+		},
+		{
+			name: "All valid results should produce an empty invalid grouping.",
+			deployment: Deployment{
+				Results: testResults[:1],
+			},
+			wantValid:   []string{"passing rule"},
+			wantInvalid: []string{},
+		},
+		{
+			name: "All invalid results should produce an empty valid grouping.",
+			deployment: Deployment{
+				Results: testResults[1:],
+			},
+			wantValid:   []string{},
+			wantInvalid: []string{"failing rule", "failing rule"},
+		},
+	}
+
+	for _, tt := range tests {
+		t.Logf("Running test -- %v", tt.name)
+		d := tt.deployment
+		d.Debug = true
+		d.Logger = logrus.New()
+		d.jsonResultFormatter()
+		var got jsonResponse
+		if err := json.Unmarshal(d.ResultsJson, &got); err != nil {
+			t.Errorf("Error unmarshalling test JSON data -- %s", tt.name)
+			continue
+		}
+		if got.ByValid == nil || got.ByInvalid == nil {
+			t.Errorf("Test Error -- %s:\nByValid and ByInvalid should always be present in the JSON output\n", tt.name)
+		}
+		if len(got.ByValid) != len(tt.wantValid) {
+			t.Errorf("Test Error -- %s:\ngot: %v valid results\n::\nwant: %v\n", tt.name, len(got.ByValid), len(tt.wantValid))
+		}
+		for i, want := range tt.wantValid {
+			if got.ByValid[i].Name != want || !got.ByValid[i].Valid {
+				t.Errorf("Test Error -- %s:\ngot: %v\n::\nwant a valid result named: %v\n", tt.name, got.ByValid[i], want)
+			}
+		}
+		if len(got.ByInvalid) != len(tt.wantInvalid) {
+			t.Errorf("Test Error -- %s:\ngot: %v invalid results\n::\nwant: %v\n", tt.name, len(got.ByInvalid), len(tt.wantInvalid))
+		}
+		for i, want := range tt.wantInvalid {
+			if got.ByInvalid[i].Name != want || got.ByInvalid[i].Valid {
+				t.Errorf("Test Error -- %s:\ngot: %v\n::\nwant an invalid result named: %v\n", tt.name, got.ByInvalid[i], want)
+			}
+		}
+		if len(got.ByValid)+len(got.ByInvalid) != got.TotalResults {
+			t.Errorf("Test Error -- %s:\ngot: %v valid + %v invalid\n::\nwant them to total: %v\n", tt.name, len(got.ByValid), len(got.ByInvalid), got.TotalResults)
 		}
 	}
 }

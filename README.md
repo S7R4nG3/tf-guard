@@ -198,6 +198,38 @@ TF Guard Rule Evaluation for Resources:
 Overall Resource Score: 50%
 ```
 
+### JSON Output
+
+The `ResultsJson` output contains the same results grouped several different ways so they can be parsed however best suits your automation.
+
+| Key | Description |
+| --- | --- |
+| `ByResource` | All results keyed by the address of the resource they were evaluated against. |
+| `ByRule` | All results keyed by the name of the rule that produced them. |
+| `ByValid` | Every result that evaluated as **valid**, as a flat list. |
+| `ByInvalid` | Every result that evaluated as **invalid**, as a flat list. |
+| `TotalResults` | The total count of all results, valid and invalid. |
+| `ValidResults` | The count of results that evaluated as valid. |
+| `Score` | The percentage of results that evaluated as valid. |
+
+The `ByValid` and `ByInvalid` groupings let you act on passing or failing rules directly without having to filter the resource or rule groupings yourself - for example, gating a pipeline on the failures alone.
+
+```go
+d.Scan()
+
+var results struct {
+    ByInvalid []tfGuard.Result
+    Score     float64
+}
+json.Unmarshal(d.ResultsJson, &results)
+
+for _, res := range results.ByInvalid {
+    fmt.Printf("%s failed %s\n", res.Resource.Planned.Address, res.Name)
+}
+```
+
+Both keys are always present in the output - an empty list when no results fall into that grouping. See [resultsJson.json](./examples/simple/resultsJson.json) for a full example response.
+
 Check out the [examples](./examples) on how you can integrate this package into your own codebase.
 
 ## Author
