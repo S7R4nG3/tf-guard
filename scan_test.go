@@ -21,6 +21,20 @@ func TestDeployment(t *testing.T) {
 			return Result{}
 		},
 	}
+	// Rules that apply to no resource in the null_resource plan, leaving
+	// the Deployment with an empty result set.
+	notApplicableRules := []Rule{
+		func(t tfresources.Resource) Result {
+			if t.Planned.Type == "aws_s3_bucket" {
+				return Result{
+					Name:     "Test Rule",
+					Severity: Severity.Major,
+					Valid:    true,
+				}
+			}
+			return Result{NotApplicable: true}
+		},
+	}
 	tests := []struct {
 		name       string
 		deployment Deployment
@@ -46,12 +60,26 @@ func TestDeployment(t *testing.T) {
 			},
 			want: 100.00,
 		},
+		{
+			name: "A deployment producing no applicable results should still marshal cleanly.",
+			deployment: Deployment{
+				PlanFile: "./testdata/null/plan.json",
+				Rules:    notApplicableRules,
+				Debug:    true,
+				Logger:   logrus.New(),
+			},
+			want: 100.00,
+		},
 	}
 
 	for _, tt := range tests {
 		t.Logf("Running test -- %v", tt.name)
 		d := tt.deployment
 		d.Scan()
+		if len(d.ResultsJson) == 0 {
+			t.Errorf("Test Error -- %s:\nResultsJson is empty, the results failed to marshal\n", tt.name)
+			continue
+		}
 		var got jsonResponse
 		err := json.Unmarshal(d.ResultsJson, &got)
 		if err != nil {

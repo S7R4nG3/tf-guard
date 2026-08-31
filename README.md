@@ -230,6 +230,8 @@ for _, res := range results.ByInvalid {
 
 Both keys are always present in the output - an empty list when no results fall into that grouping. See [resultsJson.json](./examples/simple/resultsJson.json) for a full example response.
 
+A `Deployment` can legitimately finish with _no_ results at all - if every rule is flagged `NotApplicable` against every resource in the plan, for instance, which is common when a plan contains only resource types none of your rules target. In that case the groupings are empty, `TotalResults` is `0`, and the `Score` is reported as `100`. Check `TotalResults` rather than `Score` alone if you need to distinguish "everything passed" from "nothing was evaluated".
+
 Check out the [examples](./examples) on how you can integrate this package into your own codebase.
 
 ## Author

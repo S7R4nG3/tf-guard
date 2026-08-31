@@ -80,6 +80,14 @@ func TestStringResultFormatter(t *testing.T) {
 			notWant: []string{"passing rule"},
 		},
 		{
+			name: "An empty result set should report a score rather than NaN.",
+			deployment: Deployment{
+				Results: []Result{},
+			},
+			want:    []string{"No applicable results", "Overall Resource Score: 100%"},
+			notWant: []string{"NaN"},
+		},
+		{
 			name: "A provided remediation message should be included in the output.",
 			deployment: Deployment{
 				Results: remediationResults,
@@ -167,6 +175,14 @@ func TestJsonResultFormatter(t *testing.T) {
 			wantInvalid: []string{"failing rule", "failing rule"},
 		},
 		{
+			name: "An empty result set should still marshal into valid JSON.",
+			deployment: Deployment{
+				Results: []Result{},
+			},
+			wantValid:   []string{},
+			wantInvalid: []string{},
+		},
+		{
 			name: "All valid results should produce an empty invalid grouping.",
 			deployment: Deployment{
 				Results: testResults[:1],
@@ -190,6 +206,10 @@ func TestJsonResultFormatter(t *testing.T) {
 		d.Debug = true
 		d.Logger = logrus.New()
 		d.jsonResultFormatter()
+		if len(d.ResultsJson) == 0 {
+			t.Errorf("Test Error -- %s:\nResultsJson is empty, the results failed to marshal\n", tt.name)
+			continue
+		}
 		var got jsonResponse
 		if err := json.Unmarshal(d.ResultsJson, &got); err != nil {
 			t.Errorf("Error unmarshalling test JSON data -- %s", tt.name)

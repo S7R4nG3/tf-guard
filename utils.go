@@ -38,7 +38,10 @@ func (d *Deployment) stringResultFormatter() {
 			body.WriteString(c.Sprintf("\n\tRemediation: %s", res.RemediationMessage))
 		}
 	}
-	score := (float64(validCounter) / float64(len(d.Results))) * 100
+	if len(d.Results) == 0 {
+		body.WriteString(color.New(color.FgYellow).Sprint("\n\nNo applicable results - no rules were evaluated against the parsed resources."))
+	}
+	score := resultsScore(validCounter, len(d.Results))
 	body.WriteString(color.New(color.FgCyan).Add(color.Bold).Sprintf("\n\nOverall Resource Score: %.0f%%\n", score))
 	d.ResultsStdOut = body.String()
 	d.debugLogger("String results aggregated.")
@@ -69,13 +72,27 @@ func (d *Deployment) jsonResultFormatter() {
 	}
 	j.ValidResults = validCounter
 	j.TotalResults = len(d.Results)
-	j.Score = (float64(validCounter) / float64(len(d.Results))) * 100
+	j.Score = resultsScore(validCounter, len(d.Results))
 	out, err := json.Marshal(j)
 	if err != nil {
 		d.Logger.Error("error marshalling json body", err)
 	}
 	d.ResultsJson = out
 	d.debugLogger("JSON results aggregated.")
+}
+
+// Calculates the percentage of results that evaluated as valid.
+//
+// A Deployment can legitimately produce zero results - when every
+// rule is flagged NotApplicable against every parsed resource, for
+// example - so the total is checked before dividing. Without the
+// check an empty result set produces a NaN score, which cannot be
+// marshalled into the JSON output.
+func resultsScore(valid int, total int) float64 {
+	if total == 0 {
+		return 100
+	}
+	return (float64(valid) / float64(total)) * 100
 }
 
 func (d *Deployment) debugLogger(msg string) {
