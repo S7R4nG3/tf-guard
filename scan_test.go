@@ -90,3 +90,60 @@ func TestDeployment(t *testing.T) {
 		}
 	}
 }
+
+// The planned change and the known after apply attributes must reach the
+// Rules, so a rule can tell a deferred attribute from an unconfigured one.
+func TestKnownAfterApplyIsExposedToRules(t *testing.T) {
+	// This bucket configures its tags but defers its encryption, exercising
+	// both halves of that distinction.
+	const (
+		address    = "aws_s3_bucket.default"
+		configured = "tags"
+		deferred   = "server_side_encryption_configuration"
+	)
+	d := Deployment{
+		PlanFile:      "./testdata/simple/plan.json",
+		DisableStdOut: true,
+		Rules: []Rule{
+			func(r tfresources.Resource) Result {
+				if r.Planned.Address != address {
+					return Result{NotApplicable: true}
+				}
+				return Result{Name: "known after apply", Valid: true}
+			},
+		},
+	}
+	d.Scan()
+
+	if len(d.Results) != 1 {
+		t.Fatalf("Test Error -- expected a single result for %s, got %v", address, len(d.Results))
+	}
+	resource := d.Results[0].Resource
+
+	if !resource.Change.Actions.Create() {
+		t.Errorf("Test Error -- expected the planned change for %s to be a create, got %v", address, resource.Change.Actions)
+	}
+	if _, set := resource.Planned.AttributeValues[configured]; !set {
+		t.Errorf("Test Error -- expected %s to be configured in the planned values for %s", configured, address)
+	}
+	if _, set := resource.Planned.AttributeValues[deferred]; set {
+		t.Errorf("Test Error -- expected %s to be absent from the planned values for %s", deferred, address)
+	}
+	if !resource.KnownAfterApply.HasPrefix(deferred) {
+		t.Errorf("Test Error -- expected %s to be known after apply for %s, got %v", deferred, address, resource.KnownAfterApply.Paths())
+	}
+	if resource.KnownAfterApply.Has(configured) {
+		t.Errorf("Test Error -- expected the configured attribute %s not to be known after apply for %s", configured, address)
+	}
+
+	// The re-exported aliases must name the types the Resource carries.
+	var (
+		change     Change          = resource.Change
+		unknowns   KnownAfterApply = resource.KnownAfterApply
+		attributes []UnknownAttribute
+	)
+	attributes = append(attributes, unknowns...)
+	if len(attributes) == 0 || len(change.Actions) == 0 {
+		t.Errorf("Test Error -- expected the re-exported change types to carry the resource's planned change")
+	}
+}

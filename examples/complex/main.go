@@ -12,8 +12,10 @@ func main() {
 			RuleModulesMustBeSourcedFromRegistry,
 			RuleS3BucketMustBeTagged,
 			RuleS3BucketsShouldNotHaveForceDestroy,
+			RuleIamPoliciesMustNotAllowWildcardActions,
 		},
 		// Debug: true,
+		VerboseStdOut: true,
 	}
 	g.Scan()
 }

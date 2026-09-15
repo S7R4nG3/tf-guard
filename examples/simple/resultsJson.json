@@ -37,7 +37,204 @@
                             "versioning": [],
                             "website": []
                         }
-                    }
+                    },
+                    "Change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "bucket": "my-test-bucket",
+                            "force_destroy": false,
+                            "tags": null,
+                            "timeouts": null
+                        },
+                        "after_unknown": {
+                            "acceleration_status": true,
+                            "acl": true,
+                            "arn": true,
+                            "bucket_domain_name": true,
+                            "bucket_prefix": true,
+                            "bucket_regional_domain_name": true,
+                            "cors_rule": true,
+                            "grant": true,
+                            "hosted_zone_id": true,
+                            "id": true,
+                            "lifecycle_rule": true,
+                            "logging": true,
+                            "object_lock_configuration": true,
+                            "object_lock_enabled": true,
+                            "policy": true,
+                            "region": true,
+                            "replication_configuration": true,
+                            "request_payer": true,
+                            "server_side_encryption_configuration": true,
+                            "tags_all": true,
+                            "versioning": true,
+                            "website": true,
+                            "website_domain": true,
+                            "website_endpoint": true
+                        },
+                        "before_sensitive": false,
+                        "after_sensitive": {
+                            "cors_rule": [],
+                            "grant": [],
+                            "lifecycle_rule": [],
+                            "logging": [],
+                            "object_lock_configuration": [],
+                            "replication_configuration": [],
+                            "server_side_encryption_configuration": [],
+                            "tags_all": {},
+                            "versioning": [],
+                            "website": []
+                        }
+                    },
+                    "KnownAfterApply": [
+                        {
+                            "Path": "acceleration_status",
+                            "Steps": [
+                                "acceleration_status"
+                            ]
+                        },
+                        {
+                            "Path": "acl",
+                            "Steps": [
+                                "acl"
+                            ]
+                        },
+                        {
+                            "Path": "arn",
+                            "Steps": [
+                                "arn"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_domain_name",
+                            "Steps": [
+                                "bucket_domain_name"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_prefix",
+                            "Steps": [
+                                "bucket_prefix"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_regional_domain_name",
+                            "Steps": [
+                                "bucket_regional_domain_name"
+                            ]
+                        },
+                        {
+                            "Path": "cors_rule",
+                            "Steps": [
+                                "cors_rule"
+                            ]
+                        },
+                        {
+                            "Path": "grant",
+                            "Steps": [
+                                "grant"
+                            ]
+                        },
+                        {
+                            "Path": "hosted_zone_id",
+                            "Steps": [
+                                "hosted_zone_id"
+                            ]
+                        },
+                        {
+                            "Path": "id",
+                            "Steps": [
+                                "id"
+                            ]
+                        },
+                        {
+                            "Path": "lifecycle_rule",
+                            "Steps": [
+                                "lifecycle_rule"
+                            ]
+                        },
+                        {
+                            "Path": "logging",
+                            "Steps": [
+                                "logging"
+                            ]
+                        },
+                        {
+                            "Path": "object_lock_configuration",
+                            "Steps": [
+                                "object_lock_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "object_lock_enabled",
+                            "Steps": [
+                                "object_lock_enabled"
+                            ]
+                        },
+                        {
+                            "Path": "policy",
+                            "Steps": [
+                                "policy"
+                            ]
+                        },
+                        {
+                            "Path": "region",
+                            "Steps": [
+                                "region"
+                            ]
+                        },
+                        {
+                            "Path": "replication_configuration",
+                            "Steps": [
+                                "replication_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "request_payer",
+                            "Steps": [
+                                "request_payer"
+                            ]
+                        },
+                        {
+                            "Path": "server_side_encryption_configuration",
+                            "Steps": [
+                                "server_side_encryption_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "tags_all",
+                            "Steps": [
+                                "tags_all"
+                            ]
+                        },
+                        {
+                            "Path": "versioning",
+                            "Steps": [
+                                "versioning"
+                            ]
+                        },
+                        {
+                            "Path": "website",
+                            "Steps": [
+                                "website"
+                            ]
+                        },
+                        {
+                            "Path": "website_domain",
+                            "Steps": [
+                                "website_domain"
+                            ]
+                        },
+                        {
+                            "Path": "website_endpoint",
+                            "Steps": [
+                                "website_endpoint"
+                            ]
+                        }
+                    ]
                 },
                 "RemediationMessage": "",
                 "NotApplicable": false
@@ -78,9 +275,444 @@
                             "versioning": [],
                             "website": []
                         }
-                    }
+                    },
+                    "Change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "bucket": "my-test-bucket",
+                            "force_destroy": false,
+                            "tags": null,
+                            "timeouts": null
+                        },
+                        "after_unknown": {
+                            "acceleration_status": true,
+                            "acl": true,
+                            "arn": true,
+                            "bucket_domain_name": true,
+                            "bucket_prefix": true,
+                            "bucket_regional_domain_name": true,
+                            "cors_rule": true,
+                            "grant": true,
+                            "hosted_zone_id": true,
+                            "id": true,
+                            "lifecycle_rule": true,
+                            "logging": true,
+                            "object_lock_configuration": true,
+                            "object_lock_enabled": true,
+                            "policy": true,
+                            "region": true,
+                            "replication_configuration": true,
+                            "request_payer": true,
+                            "server_side_encryption_configuration": true,
+                            "tags_all": true,
+                            "versioning": true,
+                            "website": true,
+                            "website_domain": true,
+                            "website_endpoint": true
+                        },
+                        "before_sensitive": false,
+                        "after_sensitive": {
+                            "cors_rule": [],
+                            "grant": [],
+                            "lifecycle_rule": [],
+                            "logging": [],
+                            "object_lock_configuration": [],
+                            "replication_configuration": [],
+                            "server_side_encryption_configuration": [],
+                            "tags_all": {},
+                            "versioning": [],
+                            "website": []
+                        }
+                    },
+                    "KnownAfterApply": [
+                        {
+                            "Path": "acceleration_status",
+                            "Steps": [
+                                "acceleration_status"
+                            ]
+                        },
+                        {
+                            "Path": "acl",
+                            "Steps": [
+                                "acl"
+                            ]
+                        },
+                        {
+                            "Path": "arn",
+                            "Steps": [
+                                "arn"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_domain_name",
+                            "Steps": [
+                                "bucket_domain_name"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_prefix",
+                            "Steps": [
+                                "bucket_prefix"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_regional_domain_name",
+                            "Steps": [
+                                "bucket_regional_domain_name"
+                            ]
+                        },
+                        {
+                            "Path": "cors_rule",
+                            "Steps": [
+                                "cors_rule"
+                            ]
+                        },
+                        {
+                            "Path": "grant",
+                            "Steps": [
+                                "grant"
+                            ]
+                        },
+                        {
+                            "Path": "hosted_zone_id",
+                            "Steps": [
+                                "hosted_zone_id"
+                            ]
+                        },
+                        {
+                            "Path": "id",
+                            "Steps": [
+                                "id"
+                            ]
+                        },
+                        {
+                            "Path": "lifecycle_rule",
+                            "Steps": [
+                                "lifecycle_rule"
+                            ]
+                        },
+                        {
+                            "Path": "logging",
+                            "Steps": [
+                                "logging"
+                            ]
+                        },
+                        {
+                            "Path": "object_lock_configuration",
+                            "Steps": [
+                                "object_lock_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "object_lock_enabled",
+                            "Steps": [
+                                "object_lock_enabled"
+                            ]
+                        },
+                        {
+                            "Path": "policy",
+                            "Steps": [
+                                "policy"
+                            ]
+                        },
+                        {
+                            "Path": "region",
+                            "Steps": [
+                                "region"
+                            ]
+                        },
+                        {
+                            "Path": "replication_configuration",
+                            "Steps": [
+                                "replication_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "request_payer",
+                            "Steps": [
+                                "request_payer"
+                            ]
+                        },
+                        {
+                            "Path": "server_side_encryption_configuration",
+                            "Steps": [
+                                "server_side_encryption_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "tags_all",
+                            "Steps": [
+                                "tags_all"
+                            ]
+                        },
+                        {
+                            "Path": "versioning",
+                            "Steps": [
+                                "versioning"
+                            ]
+                        },
+                        {
+                            "Path": "website",
+                            "Steps": [
+                                "website"
+                            ]
+                        },
+                        {
+                            "Path": "website_domain",
+                            "Steps": [
+                                "website_domain"
+                            ]
+                        },
+                        {
+                            "Path": "website_endpoint",
+                            "Steps": [
+                                "website_endpoint"
+                            ]
+                        }
+                    ]
                 },
                 "RemediationMessage": "",
+                "NotApplicable": false
+            },
+            {
+                "Name": "S3 buckets must have server-side encryption configured.",
+                "Valid": true,
+                "Severity": "Critical",
+                "Resource": {
+                    "Module": {
+                        "Source": "",
+                        "Version": "",
+                        "Dir": "",
+                        "Key": ""
+                    },
+                    "Planned": {
+                        "address": "aws_s3_bucket.default",
+                        "mode": "managed",
+                        "type": "aws_s3_bucket",
+                        "name": "default",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "bucket": "my-test-bucket",
+                            "force_destroy": false,
+                            "tags": null,
+                            "timeouts": null
+                        },
+                        "sensitive_values": {
+                            "cors_rule": [],
+                            "grant": [],
+                            "lifecycle_rule": [],
+                            "logging": [],
+                            "object_lock_configuration": [],
+                            "replication_configuration": [],
+                            "server_side_encryption_configuration": [],
+                            "tags_all": {},
+                            "versioning": [],
+                            "website": []
+                        }
+                    },
+                    "Change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "bucket": "my-test-bucket",
+                            "force_destroy": false,
+                            "tags": null,
+                            "timeouts": null
+                        },
+                        "after_unknown": {
+                            "acceleration_status": true,
+                            "acl": true,
+                            "arn": true,
+                            "bucket_domain_name": true,
+                            "bucket_prefix": true,
+                            "bucket_regional_domain_name": true,
+                            "cors_rule": true,
+                            "grant": true,
+                            "hosted_zone_id": true,
+                            "id": true,
+                            "lifecycle_rule": true,
+                            "logging": true,
+                            "object_lock_configuration": true,
+                            "object_lock_enabled": true,
+                            "policy": true,
+                            "region": true,
+                            "replication_configuration": true,
+                            "request_payer": true,
+                            "server_side_encryption_configuration": true,
+                            "tags_all": true,
+                            "versioning": true,
+                            "website": true,
+                            "website_domain": true,
+                            "website_endpoint": true
+                        },
+                        "before_sensitive": false,
+                        "after_sensitive": {
+                            "cors_rule": [],
+                            "grant": [],
+                            "lifecycle_rule": [],
+                            "logging": [],
+                            "object_lock_configuration": [],
+                            "replication_configuration": [],
+                            "server_side_encryption_configuration": [],
+                            "tags_all": {},
+                            "versioning": [],
+                            "website": []
+                        }
+                    },
+                    "KnownAfterApply": [
+                        {
+                            "Path": "acceleration_status",
+                            "Steps": [
+                                "acceleration_status"
+                            ]
+                        },
+                        {
+                            "Path": "acl",
+                            "Steps": [
+                                "acl"
+                            ]
+                        },
+                        {
+                            "Path": "arn",
+                            "Steps": [
+                                "arn"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_domain_name",
+                            "Steps": [
+                                "bucket_domain_name"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_prefix",
+                            "Steps": [
+                                "bucket_prefix"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_regional_domain_name",
+                            "Steps": [
+                                "bucket_regional_domain_name"
+                            ]
+                        },
+                        {
+                            "Path": "cors_rule",
+                            "Steps": [
+                                "cors_rule"
+                            ]
+                        },
+                        {
+                            "Path": "grant",
+                            "Steps": [
+                                "grant"
+                            ]
+                        },
+                        {
+                            "Path": "hosted_zone_id",
+                            "Steps": [
+                                "hosted_zone_id"
+                            ]
+                        },
+                        {
+                            "Path": "id",
+                            "Steps": [
+                                "id"
+                            ]
+                        },
+                        {
+                            "Path": "lifecycle_rule",
+                            "Steps": [
+                                "lifecycle_rule"
+                            ]
+                        },
+                        {
+                            "Path": "logging",
+                            "Steps": [
+                                "logging"
+                            ]
+                        },
+                        {
+                            "Path": "object_lock_configuration",
+                            "Steps": [
+                                "object_lock_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "object_lock_enabled",
+                            "Steps": [
+                                "object_lock_enabled"
+                            ]
+                        },
+                        {
+                            "Path": "policy",
+                            "Steps": [
+                                "policy"
+                            ]
+                        },
+                        {
+                            "Path": "region",
+                            "Steps": [
+                                "region"
+                            ]
+                        },
+                        {
+                            "Path": "replication_configuration",
+                            "Steps": [
+                                "replication_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "request_payer",
+                            "Steps": [
+                                "request_payer"
+                            ]
+                        },
+                        {
+                            "Path": "server_side_encryption_configuration",
+                            "Steps": [
+                                "server_side_encryption_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "tags_all",
+                            "Steps": [
+                                "tags_all"
+                            ]
+                        },
+                        {
+                            "Path": "versioning",
+                            "Steps": [
+                                "versioning"
+                            ]
+                        },
+                        {
+                            "Path": "website",
+                            "Steps": [
+                                "website"
+                            ]
+                        },
+                        {
+                            "Path": "website_domain",
+                            "Steps": [
+                                "website_domain"
+                            ]
+                        },
+                        {
+                            "Path": "website_endpoint",
+                            "Steps": [
+                                "website_endpoint"
+                            ]
+                        }
+                    ]
+                },
+                "RemediationMessage": "Encryption is known after apply for this bucket - confirm it is enabled once the plan has been applied.",
                 "NotApplicable": false
             }
         ],
@@ -125,7 +757,110 @@
                         "sensitive_values": {
                             "tags_all": {}
                         }
-                    }
+                    },
+                    "Change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "acl": "private",
+                            "cache_control": null,
+                            "content": null,
+                            "content_base64": null,
+                            "content_disposition": null,
+                            "content_encoding": null,
+                            "content_language": null,
+                            "force_destroy": false,
+                            "key": "a/magic/object/key",
+                            "metadata": null,
+                            "object_lock_legal_hold_status": null,
+                            "object_lock_mode": null,
+                            "object_lock_retain_until_date": null,
+                            "source": "./outputs.tf",
+                            "source_hash": null,
+                            "tags": null,
+                            "website_redirect": null
+                        },
+                        "after_unknown": {
+                            "bucket": true,
+                            "bucket_key_enabled": true,
+                            "content_type": true,
+                            "etag": true,
+                            "id": true,
+                            "kms_key_id": true,
+                            "server_side_encryption": true,
+                            "storage_class": true,
+                            "tags_all": true,
+                            "version_id": true
+                        },
+                        "before_sensitive": false,
+                        "after_sensitive": {
+                            "tags_all": {}
+                        }
+                    },
+                    "KnownAfterApply": [
+                        {
+                            "Path": "bucket",
+                            "Steps": [
+                                "bucket"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_key_enabled",
+                            "Steps": [
+                                "bucket_key_enabled"
+                            ]
+                        },
+                        {
+                            "Path": "content_type",
+                            "Steps": [
+                                "content_type"
+                            ]
+                        },
+                        {
+                            "Path": "etag",
+                            "Steps": [
+                                "etag"
+                            ]
+                        },
+                        {
+                            "Path": "id",
+                            "Steps": [
+                                "id"
+                            ]
+                        },
+                        {
+                            "Path": "kms_key_id",
+                            "Steps": [
+                                "kms_key_id"
+                            ]
+                        },
+                        {
+                            "Path": "server_side_encryption",
+                            "Steps": [
+                                "server_side_encryption"
+                            ]
+                        },
+                        {
+                            "Path": "storage_class",
+                            "Steps": [
+                                "storage_class"
+                            ]
+                        },
+                        {
+                            "Path": "tags_all",
+                            "Steps": [
+                                "tags_all"
+                            ]
+                        },
+                        {
+                            "Path": "version_id",
+                            "Steps": [
+                                "version_id"
+                            ]
+                        }
+                    ]
                 },
                 "RemediationMessage": "",
                 "NotApplicable": false
@@ -170,7 +905,110 @@
                         "sensitive_values": {
                             "tags_all": {}
                         }
-                    }
+                    },
+                    "Change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "acl": "private",
+                            "cache_control": null,
+                            "content": null,
+                            "content_base64": null,
+                            "content_disposition": null,
+                            "content_encoding": null,
+                            "content_language": null,
+                            "force_destroy": false,
+                            "key": "a/magic/object/key",
+                            "metadata": null,
+                            "object_lock_legal_hold_status": null,
+                            "object_lock_mode": null,
+                            "object_lock_retain_until_date": null,
+                            "source": "./outputs.tf",
+                            "source_hash": null,
+                            "tags": null,
+                            "website_redirect": null
+                        },
+                        "after_unknown": {
+                            "bucket": true,
+                            "bucket_key_enabled": true,
+                            "content_type": true,
+                            "etag": true,
+                            "id": true,
+                            "kms_key_id": true,
+                            "server_side_encryption": true,
+                            "storage_class": true,
+                            "tags_all": true,
+                            "version_id": true
+                        },
+                        "before_sensitive": false,
+                        "after_sensitive": {
+                            "tags_all": {}
+                        }
+                    },
+                    "KnownAfterApply": [
+                        {
+                            "Path": "bucket",
+                            "Steps": [
+                                "bucket"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_key_enabled",
+                            "Steps": [
+                                "bucket_key_enabled"
+                            ]
+                        },
+                        {
+                            "Path": "content_type",
+                            "Steps": [
+                                "content_type"
+                            ]
+                        },
+                        {
+                            "Path": "etag",
+                            "Steps": [
+                                "etag"
+                            ]
+                        },
+                        {
+                            "Path": "id",
+                            "Steps": [
+                                "id"
+                            ]
+                        },
+                        {
+                            "Path": "kms_key_id",
+                            "Steps": [
+                                "kms_key_id"
+                            ]
+                        },
+                        {
+                            "Path": "server_side_encryption",
+                            "Steps": [
+                                "server_side_encryption"
+                            ]
+                        },
+                        {
+                            "Path": "storage_class",
+                            "Steps": [
+                                "storage_class"
+                            ]
+                        },
+                        {
+                            "Path": "tags_all",
+                            "Steps": [
+                                "tags_all"
+                            ]
+                        },
+                        {
+                            "Path": "version_id",
+                            "Steps": [
+                                "version_id"
+                            ]
+                        }
+                    ]
                 },
                 "RemediationMessage": "",
                 "NotApplicable": false
@@ -179,6 +1017,154 @@
     },
     "ByRule": {
         "All resources must include an Owner tag.": [
+            {
+                "Name": "All resources must include an Owner tag.",
+                "Valid": false,
+                "Severity": "Major",
+                "Resource": {
+                    "Module": {
+                        "Source": "",
+                        "Version": "",
+                        "Dir": "",
+                        "Key": ""
+                    },
+                    "Planned": {
+                        "address": "aws_s3_object.obj",
+                        "mode": "managed",
+                        "type": "aws_s3_object",
+                        "name": "obj",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "acl": "private",
+                            "cache_control": null,
+                            "content": null,
+                            "content_base64": null,
+                            "content_disposition": null,
+                            "content_encoding": null,
+                            "content_language": null,
+                            "force_destroy": false,
+                            "key": "a/magic/object/key",
+                            "metadata": null,
+                            "object_lock_legal_hold_status": null,
+                            "object_lock_mode": null,
+                            "object_lock_retain_until_date": null,
+                            "source": "./outputs.tf",
+                            "source_hash": null,
+                            "tags": null,
+                            "website_redirect": null
+                        },
+                        "sensitive_values": {
+                            "tags_all": {}
+                        }
+                    },
+                    "Change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "acl": "private",
+                            "cache_control": null,
+                            "content": null,
+                            "content_base64": null,
+                            "content_disposition": null,
+                            "content_encoding": null,
+                            "content_language": null,
+                            "force_destroy": false,
+                            "key": "a/magic/object/key",
+                            "metadata": null,
+                            "object_lock_legal_hold_status": null,
+                            "object_lock_mode": null,
+                            "object_lock_retain_until_date": null,
+                            "source": "./outputs.tf",
+                            "source_hash": null,
+                            "tags": null,
+                            "website_redirect": null
+                        },
+                        "after_unknown": {
+                            "bucket": true,
+                            "bucket_key_enabled": true,
+                            "content_type": true,
+                            "etag": true,
+                            "id": true,
+                            "kms_key_id": true,
+                            "server_side_encryption": true,
+                            "storage_class": true,
+                            "tags_all": true,
+                            "version_id": true
+                        },
+                        "before_sensitive": false,
+                        "after_sensitive": {
+                            "tags_all": {}
+                        }
+                    },
+                    "KnownAfterApply": [
+                        {
+                            "Path": "bucket",
+                            "Steps": [
+                                "bucket"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_key_enabled",
+                            "Steps": [
+                                "bucket_key_enabled"
+                            ]
+                        },
+                        {
+                            "Path": "content_type",
+                            "Steps": [
+                                "content_type"
+                            ]
+                        },
+                        {
+                            "Path": "etag",
+                            "Steps": [
+                                "etag"
+                            ]
+                        },
+                        {
+                            "Path": "id",
+                            "Steps": [
+                                "id"
+                            ]
+                        },
+                        {
+                            "Path": "kms_key_id",
+                            "Steps": [
+                                "kms_key_id"
+                            ]
+                        },
+                        {
+                            "Path": "server_side_encryption",
+                            "Steps": [
+                                "server_side_encryption"
+                            ]
+                        },
+                        {
+                            "Path": "storage_class",
+                            "Steps": [
+                                "storage_class"
+                            ]
+                        },
+                        {
+                            "Path": "tags_all",
+                            "Steps": [
+                                "tags_all"
+                            ]
+                        },
+                        {
+                            "Path": "version_id",
+                            "Steps": [
+                                "version_id"
+                            ]
+                        }
+                    ]
+                },
+                "RemediationMessage": "",
+                "NotApplicable": false
+            },
             {
                 "Name": "All resources must include an Owner tag.",
                 "Valid": false,
@@ -215,52 +1201,204 @@
                             "versioning": [],
                             "website": []
                         }
-                    }
-                },
-                "RemediationMessage": "",
-                "NotApplicable": false
-            },
-            {
-                "Name": "All resources must include an Owner tag.",
-                "Valid": false,
-                "Severity": "Major",
-                "Resource": {
-                    "Module": {
-                        "Source": "",
-                        "Version": "",
-                        "Dir": "",
-                        "Key": ""
                     },
-                    "Planned": {
-                        "address": "aws_s3_object.obj",
-                        "mode": "managed",
-                        "type": "aws_s3_object",
-                        "name": "obj",
-                        "provider_name": "registry.terraform.io/hashicorp/aws",
-                        "schema_version": 0,
-                        "values": {
-                            "acl": "private",
-                            "cache_control": null,
-                            "content": null,
-                            "content_base64": null,
-                            "content_disposition": null,
-                            "content_encoding": null,
-                            "content_language": null,
+                    "Change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "bucket": "my-test-bucket",
                             "force_destroy": false,
-                            "key": "a/magic/object/key",
-                            "metadata": null,
-                            "object_lock_legal_hold_status": null,
-                            "object_lock_mode": null,
-                            "object_lock_retain_until_date": null,
-                            "source": "./outputs.tf",
-                            "source_hash": null,
                             "tags": null,
-                            "website_redirect": null
+                            "timeouts": null
                         },
-                        "sensitive_values": {
-                            "tags_all": {}
+                        "after_unknown": {
+                            "acceleration_status": true,
+                            "acl": true,
+                            "arn": true,
+                            "bucket_domain_name": true,
+                            "bucket_prefix": true,
+                            "bucket_regional_domain_name": true,
+                            "cors_rule": true,
+                            "grant": true,
+                            "hosted_zone_id": true,
+                            "id": true,
+                            "lifecycle_rule": true,
+                            "logging": true,
+                            "object_lock_configuration": true,
+                            "object_lock_enabled": true,
+                            "policy": true,
+                            "region": true,
+                            "replication_configuration": true,
+                            "request_payer": true,
+                            "server_side_encryption_configuration": true,
+                            "tags_all": true,
+                            "versioning": true,
+                            "website": true,
+                            "website_domain": true,
+                            "website_endpoint": true
+                        },
+                        "before_sensitive": false,
+                        "after_sensitive": {
+                            "cors_rule": [],
+                            "grant": [],
+                            "lifecycle_rule": [],
+                            "logging": [],
+                            "object_lock_configuration": [],
+                            "replication_configuration": [],
+                            "server_side_encryption_configuration": [],
+                            "tags_all": {},
+                            "versioning": [],
+                            "website": []
                         }
-                    }
+                    },
+                    "KnownAfterApply": [
+                        {
+                            "Path": "acceleration_status",
+                            "Steps": [
+                                "acceleration_status"
+                            ]
+                        },
+                        {
+                            "Path": "acl",
+                            "Steps": [
+                                "acl"
+                            ]
+                        },
+                        {
+                            "Path": "arn",
+                            "Steps": [
+                                "arn"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_domain_name",
+                            "Steps": [
+                                "bucket_domain_name"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_prefix",
+                            "Steps": [
+                                "bucket_prefix"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_regional_domain_name",
+                            "Steps": [
+                                "bucket_regional_domain_name"
+                            ]
+                        },
+                        {
+                            "Path": "cors_rule",
+                            "Steps": [
+                                "cors_rule"
+                            ]
+                        },
+                        {
+                            "Path": "grant",
+                            "Steps": [
+                                "grant"
+                            ]
+                        },
+                        {
+                            "Path": "hosted_zone_id",
+                            "Steps": [
+                                "hosted_zone_id"
+                            ]
+                        },
+                        {
+                            "Path": "id",
+                            "Steps": [
+                                "id"
+                            ]
+                        },
+                        {
+                            "Path": "lifecycle_rule",
+                            "Steps": [
+                                "lifecycle_rule"
+                            ]
+                        },
+                        {
+                            "Path": "logging",
+                            "Steps": [
+                                "logging"
+                            ]
+                        },
+                        {
+                            "Path": "object_lock_configuration",
+                            "Steps": [
+                                "object_lock_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "object_lock_enabled",
+                            "Steps": [
+                                "object_lock_enabled"
+                            ]
+                        },
+                        {
+                            "Path": "policy",
+                            "Steps": [
+                                "policy"
+                            ]
+                        },
+                        {
+                            "Path": "region",
+                            "Steps": [
+                                "region"
+                            ]
+                        },
+                        {
+                            "Path": "replication_configuration",
+                            "Steps": [
+                                "replication_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "request_payer",
+                            "Steps": [
+                                "request_payer"
+                            ]
+                        },
+                        {
+                            "Path": "server_side_encryption_configuration",
+                            "Steps": [
+                                "server_side_encryption_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "tags_all",
+                            "Steps": [
+                                "tags_all"
+                            ]
+                        },
+                        {
+                            "Path": "versioning",
+                            "Steps": [
+                                "versioning"
+                            ]
+                        },
+                        {
+                            "Path": "website",
+                            "Steps": [
+                                "website"
+                            ]
+                        },
+                        {
+                            "Path": "website_domain",
+                            "Steps": [
+                                "website_domain"
+                            ]
+                        },
+                        {
+                            "Path": "website_endpoint",
+                            "Steps": [
+                                "website_endpoint"
+                            ]
+                        }
+                    ]
                 },
                 "RemediationMessage": "",
                 "NotApplicable": false
@@ -307,7 +1445,110 @@
                         "sensitive_values": {
                             "tags_all": {}
                         }
-                    }
+                    },
+                    "Change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "acl": "private",
+                            "cache_control": null,
+                            "content": null,
+                            "content_base64": null,
+                            "content_disposition": null,
+                            "content_encoding": null,
+                            "content_language": null,
+                            "force_destroy": false,
+                            "key": "a/magic/object/key",
+                            "metadata": null,
+                            "object_lock_legal_hold_status": null,
+                            "object_lock_mode": null,
+                            "object_lock_retain_until_date": null,
+                            "source": "./outputs.tf",
+                            "source_hash": null,
+                            "tags": null,
+                            "website_redirect": null
+                        },
+                        "after_unknown": {
+                            "bucket": true,
+                            "bucket_key_enabled": true,
+                            "content_type": true,
+                            "etag": true,
+                            "id": true,
+                            "kms_key_id": true,
+                            "server_side_encryption": true,
+                            "storage_class": true,
+                            "tags_all": true,
+                            "version_id": true
+                        },
+                        "before_sensitive": false,
+                        "after_sensitive": {
+                            "tags_all": {}
+                        }
+                    },
+                    "KnownAfterApply": [
+                        {
+                            "Path": "bucket",
+                            "Steps": [
+                                "bucket"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_key_enabled",
+                            "Steps": [
+                                "bucket_key_enabled"
+                            ]
+                        },
+                        {
+                            "Path": "content_type",
+                            "Steps": [
+                                "content_type"
+                            ]
+                        },
+                        {
+                            "Path": "etag",
+                            "Steps": [
+                                "etag"
+                            ]
+                        },
+                        {
+                            "Path": "id",
+                            "Steps": [
+                                "id"
+                            ]
+                        },
+                        {
+                            "Path": "kms_key_id",
+                            "Steps": [
+                                "kms_key_id"
+                            ]
+                        },
+                        {
+                            "Path": "server_side_encryption",
+                            "Steps": [
+                                "server_side_encryption"
+                            ]
+                        },
+                        {
+                            "Path": "storage_class",
+                            "Steps": [
+                                "storage_class"
+                            ]
+                        },
+                        {
+                            "Path": "tags_all",
+                            "Steps": [
+                                "tags_all"
+                            ]
+                        },
+                        {
+                            "Path": "version_id",
+                            "Steps": [
+                                "version_id"
+                            ]
+                        }
+                    ]
                 },
                 "RemediationMessage": "",
                 "NotApplicable": false
@@ -350,55 +1591,451 @@
                             "versioning": [],
                             "website": []
                         }
-                    }
+                    },
+                    "Change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "bucket": "my-test-bucket",
+                            "force_destroy": false,
+                            "tags": null,
+                            "timeouts": null
+                        },
+                        "after_unknown": {
+                            "acceleration_status": true,
+                            "acl": true,
+                            "arn": true,
+                            "bucket_domain_name": true,
+                            "bucket_prefix": true,
+                            "bucket_regional_domain_name": true,
+                            "cors_rule": true,
+                            "grant": true,
+                            "hosted_zone_id": true,
+                            "id": true,
+                            "lifecycle_rule": true,
+                            "logging": true,
+                            "object_lock_configuration": true,
+                            "object_lock_enabled": true,
+                            "policy": true,
+                            "region": true,
+                            "replication_configuration": true,
+                            "request_payer": true,
+                            "server_side_encryption_configuration": true,
+                            "tags_all": true,
+                            "versioning": true,
+                            "website": true,
+                            "website_domain": true,
+                            "website_endpoint": true
+                        },
+                        "before_sensitive": false,
+                        "after_sensitive": {
+                            "cors_rule": [],
+                            "grant": [],
+                            "lifecycle_rule": [],
+                            "logging": [],
+                            "object_lock_configuration": [],
+                            "replication_configuration": [],
+                            "server_side_encryption_configuration": [],
+                            "tags_all": {},
+                            "versioning": [],
+                            "website": []
+                        }
+                    },
+                    "KnownAfterApply": [
+                        {
+                            "Path": "acceleration_status",
+                            "Steps": [
+                                "acceleration_status"
+                            ]
+                        },
+                        {
+                            "Path": "acl",
+                            "Steps": [
+                                "acl"
+                            ]
+                        },
+                        {
+                            "Path": "arn",
+                            "Steps": [
+                                "arn"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_domain_name",
+                            "Steps": [
+                                "bucket_domain_name"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_prefix",
+                            "Steps": [
+                                "bucket_prefix"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_regional_domain_name",
+                            "Steps": [
+                                "bucket_regional_domain_name"
+                            ]
+                        },
+                        {
+                            "Path": "cors_rule",
+                            "Steps": [
+                                "cors_rule"
+                            ]
+                        },
+                        {
+                            "Path": "grant",
+                            "Steps": [
+                                "grant"
+                            ]
+                        },
+                        {
+                            "Path": "hosted_zone_id",
+                            "Steps": [
+                                "hosted_zone_id"
+                            ]
+                        },
+                        {
+                            "Path": "id",
+                            "Steps": [
+                                "id"
+                            ]
+                        },
+                        {
+                            "Path": "lifecycle_rule",
+                            "Steps": [
+                                "lifecycle_rule"
+                            ]
+                        },
+                        {
+                            "Path": "logging",
+                            "Steps": [
+                                "logging"
+                            ]
+                        },
+                        {
+                            "Path": "object_lock_configuration",
+                            "Steps": [
+                                "object_lock_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "object_lock_enabled",
+                            "Steps": [
+                                "object_lock_enabled"
+                            ]
+                        },
+                        {
+                            "Path": "policy",
+                            "Steps": [
+                                "policy"
+                            ]
+                        },
+                        {
+                            "Path": "region",
+                            "Steps": [
+                                "region"
+                            ]
+                        },
+                        {
+                            "Path": "replication_configuration",
+                            "Steps": [
+                                "replication_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "request_payer",
+                            "Steps": [
+                                "request_payer"
+                            ]
+                        },
+                        {
+                            "Path": "server_side_encryption_configuration",
+                            "Steps": [
+                                "server_side_encryption_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "tags_all",
+                            "Steps": [
+                                "tags_all"
+                            ]
+                        },
+                        {
+                            "Path": "versioning",
+                            "Steps": [
+                                "versioning"
+                            ]
+                        },
+                        {
+                            "Path": "website",
+                            "Steps": [
+                                "website"
+                            ]
+                        },
+                        {
+                            "Path": "website_domain",
+                            "Steps": [
+                                "website_domain"
+                            ]
+                        },
+                        {
+                            "Path": "website_endpoint",
+                            "Steps": [
+                                "website_endpoint"
+                            ]
+                        }
+                    ]
                 },
                 "RemediationMessage": "",
+                "NotApplicable": false
+            }
+        ],
+        "S3 buckets must have server-side encryption configured.": [
+            {
+                "Name": "S3 buckets must have server-side encryption configured.",
+                "Valid": true,
+                "Severity": "Critical",
+                "Resource": {
+                    "Module": {
+                        "Source": "",
+                        "Version": "",
+                        "Dir": "",
+                        "Key": ""
+                    },
+                    "Planned": {
+                        "address": "aws_s3_bucket.default",
+                        "mode": "managed",
+                        "type": "aws_s3_bucket",
+                        "name": "default",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "bucket": "my-test-bucket",
+                            "force_destroy": false,
+                            "tags": null,
+                            "timeouts": null
+                        },
+                        "sensitive_values": {
+                            "cors_rule": [],
+                            "grant": [],
+                            "lifecycle_rule": [],
+                            "logging": [],
+                            "object_lock_configuration": [],
+                            "replication_configuration": [],
+                            "server_side_encryption_configuration": [],
+                            "tags_all": {},
+                            "versioning": [],
+                            "website": []
+                        }
+                    },
+                    "Change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "bucket": "my-test-bucket",
+                            "force_destroy": false,
+                            "tags": null,
+                            "timeouts": null
+                        },
+                        "after_unknown": {
+                            "acceleration_status": true,
+                            "acl": true,
+                            "arn": true,
+                            "bucket_domain_name": true,
+                            "bucket_prefix": true,
+                            "bucket_regional_domain_name": true,
+                            "cors_rule": true,
+                            "grant": true,
+                            "hosted_zone_id": true,
+                            "id": true,
+                            "lifecycle_rule": true,
+                            "logging": true,
+                            "object_lock_configuration": true,
+                            "object_lock_enabled": true,
+                            "policy": true,
+                            "region": true,
+                            "replication_configuration": true,
+                            "request_payer": true,
+                            "server_side_encryption_configuration": true,
+                            "tags_all": true,
+                            "versioning": true,
+                            "website": true,
+                            "website_domain": true,
+                            "website_endpoint": true
+                        },
+                        "before_sensitive": false,
+                        "after_sensitive": {
+                            "cors_rule": [],
+                            "grant": [],
+                            "lifecycle_rule": [],
+                            "logging": [],
+                            "object_lock_configuration": [],
+                            "replication_configuration": [],
+                            "server_side_encryption_configuration": [],
+                            "tags_all": {},
+                            "versioning": [],
+                            "website": []
+                        }
+                    },
+                    "KnownAfterApply": [
+                        {
+                            "Path": "acceleration_status",
+                            "Steps": [
+                                "acceleration_status"
+                            ]
+                        },
+                        {
+                            "Path": "acl",
+                            "Steps": [
+                                "acl"
+                            ]
+                        },
+                        {
+                            "Path": "arn",
+                            "Steps": [
+                                "arn"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_domain_name",
+                            "Steps": [
+                                "bucket_domain_name"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_prefix",
+                            "Steps": [
+                                "bucket_prefix"
+                            ]
+                        },
+                        {
+                            "Path": "bucket_regional_domain_name",
+                            "Steps": [
+                                "bucket_regional_domain_name"
+                            ]
+                        },
+                        {
+                            "Path": "cors_rule",
+                            "Steps": [
+                                "cors_rule"
+                            ]
+                        },
+                        {
+                            "Path": "grant",
+                            "Steps": [
+                                "grant"
+                            ]
+                        },
+                        {
+                            "Path": "hosted_zone_id",
+                            "Steps": [
+                                "hosted_zone_id"
+                            ]
+                        },
+                        {
+                            "Path": "id",
+                            "Steps": [
+                                "id"
+                            ]
+                        },
+                        {
+                            "Path": "lifecycle_rule",
+                            "Steps": [
+                                "lifecycle_rule"
+                            ]
+                        },
+                        {
+                            "Path": "logging",
+                            "Steps": [
+                                "logging"
+                            ]
+                        },
+                        {
+                            "Path": "object_lock_configuration",
+                            "Steps": [
+                                "object_lock_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "object_lock_enabled",
+                            "Steps": [
+                                "object_lock_enabled"
+                            ]
+                        },
+                        {
+                            "Path": "policy",
+                            "Steps": [
+                                "policy"
+                            ]
+                        },
+                        {
+                            "Path": "region",
+                            "Steps": [
+                                "region"
+                            ]
+                        },
+                        {
+                            "Path": "replication_configuration",
+                            "Steps": [
+                                "replication_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "request_payer",
+                            "Steps": [
+                                "request_payer"
+                            ]
+                        },
+                        {
+                            "Path": "server_side_encryption_configuration",
+                            "Steps": [
+                                "server_side_encryption_configuration"
+                            ]
+                        },
+                        {
+                            "Path": "tags_all",
+                            "Steps": [
+                                "tags_all"
+                            ]
+                        },
+                        {
+                            "Path": "versioning",
+                            "Steps": [
+                                "versioning"
+                            ]
+                        },
+                        {
+                            "Path": "website",
+                            "Steps": [
+                                "website"
+                            ]
+                        },
+                        {
+                            "Path": "website_domain",
+                            "Steps": [
+                                "website_domain"
+                            ]
+                        },
+                        {
+                            "Path": "website_endpoint",
+                            "Steps": [
+                                "website_endpoint"
+                            ]
+                        }
+                    ]
+                },
+                "RemediationMessage": "Encryption is known after apply for this bucket - confirm it is enabled once the plan has been applied.",
                 "NotApplicable": false
             }
         ]
     },
     "ByValid": [
-        {
-            "Name": "S3 buckets must be tagged at all times.",
-            "Valid": true,
-            "Severity": "Minor",
-            "Resource": {
-                "Module": {
-                    "Source": "",
-                    "Version": "",
-                    "Dir": "",
-                    "Key": ""
-                },
-                "Planned": {
-                    "address": "aws_s3_bucket.default",
-                    "mode": "managed",
-                    "type": "aws_s3_bucket",
-                    "name": "default",
-                    "provider_name": "registry.terraform.io/hashicorp/aws",
-                    "schema_version": 0,
-                    "values": {
-                        "bucket": "my-test-bucket",
-                        "force_destroy": false,
-                        "tags": null,
-                        "timeouts": null
-                    },
-                    "sensitive_values": {
-                        "cors_rule": [],
-                        "grant": [],
-                        "lifecycle_rule": [],
-                        "logging": [],
-                        "object_lock_configuration": [],
-                        "replication_configuration": [],
-                        "server_side_encryption_configuration": [],
-                        "tags_all": {},
-                        "versioning": [],
-                        "website": []
-                    }
-                }
-            },
-            "RemediationMessage": "",
-            "NotApplicable": false
-        },
         {
             "Name": "S3 Bucket Objects must always be tagged.",
             "Valid": true,
@@ -439,17 +2076,118 @@
                     "sensitive_values": {
                         "tags_all": {}
                     }
-                }
+                },
+                "Change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "before": null,
+                    "after": {
+                        "acl": "private",
+                        "cache_control": null,
+                        "content": null,
+                        "content_base64": null,
+                        "content_disposition": null,
+                        "content_encoding": null,
+                        "content_language": null,
+                        "force_destroy": false,
+                        "key": "a/magic/object/key",
+                        "metadata": null,
+                        "object_lock_legal_hold_status": null,
+                        "object_lock_mode": null,
+                        "object_lock_retain_until_date": null,
+                        "source": "./outputs.tf",
+                        "source_hash": null,
+                        "tags": null,
+                        "website_redirect": null
+                    },
+                    "after_unknown": {
+                        "bucket": true,
+                        "bucket_key_enabled": true,
+                        "content_type": true,
+                        "etag": true,
+                        "id": true,
+                        "kms_key_id": true,
+                        "server_side_encryption": true,
+                        "storage_class": true,
+                        "tags_all": true,
+                        "version_id": true
+                    },
+                    "before_sensitive": false,
+                    "after_sensitive": {
+                        "tags_all": {}
+                    }
+                },
+                "KnownAfterApply": [
+                    {
+                        "Path": "bucket",
+                        "Steps": [
+                            "bucket"
+                        ]
+                    },
+                    {
+                        "Path": "bucket_key_enabled",
+                        "Steps": [
+                            "bucket_key_enabled"
+                        ]
+                    },
+                    {
+                        "Path": "content_type",
+                        "Steps": [
+                            "content_type"
+                        ]
+                    },
+                    {
+                        "Path": "etag",
+                        "Steps": [
+                            "etag"
+                        ]
+                    },
+                    {
+                        "Path": "id",
+                        "Steps": [
+                            "id"
+                        ]
+                    },
+                    {
+                        "Path": "kms_key_id",
+                        "Steps": [
+                            "kms_key_id"
+                        ]
+                    },
+                    {
+                        "Path": "server_side_encryption",
+                        "Steps": [
+                            "server_side_encryption"
+                        ]
+                    },
+                    {
+                        "Path": "storage_class",
+                        "Steps": [
+                            "storage_class"
+                        ]
+                    },
+                    {
+                        "Path": "tags_all",
+                        "Steps": [
+                            "tags_all"
+                        ]
+                    },
+                    {
+                        "Path": "version_id",
+                        "Steps": [
+                            "version_id"
+                        ]
+                    }
+                ]
             },
             "RemediationMessage": "",
             "NotApplicable": false
-        }
-    ],
-    "ByInvalid": [
+        },
         {
-            "Name": "All resources must include an Owner tag.",
-            "Valid": false,
-            "Severity": "Major",
+            "Name": "S3 buckets must be tagged at all times.",
+            "Valid": true,
+            "Severity": "Minor",
             "Resource": {
                 "Module": {
                     "Source": "",
@@ -482,11 +2220,448 @@
                         "versioning": [],
                         "website": []
                     }
-                }
+                },
+                "Change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "before": null,
+                    "after": {
+                        "bucket": "my-test-bucket",
+                        "force_destroy": false,
+                        "tags": null,
+                        "timeouts": null
+                    },
+                    "after_unknown": {
+                        "acceleration_status": true,
+                        "acl": true,
+                        "arn": true,
+                        "bucket_domain_name": true,
+                        "bucket_prefix": true,
+                        "bucket_regional_domain_name": true,
+                        "cors_rule": true,
+                        "grant": true,
+                        "hosted_zone_id": true,
+                        "id": true,
+                        "lifecycle_rule": true,
+                        "logging": true,
+                        "object_lock_configuration": true,
+                        "object_lock_enabled": true,
+                        "policy": true,
+                        "region": true,
+                        "replication_configuration": true,
+                        "request_payer": true,
+                        "server_side_encryption_configuration": true,
+                        "tags_all": true,
+                        "versioning": true,
+                        "website": true,
+                        "website_domain": true,
+                        "website_endpoint": true
+                    },
+                    "before_sensitive": false,
+                    "after_sensitive": {
+                        "cors_rule": [],
+                        "grant": [],
+                        "lifecycle_rule": [],
+                        "logging": [],
+                        "object_lock_configuration": [],
+                        "replication_configuration": [],
+                        "server_side_encryption_configuration": [],
+                        "tags_all": {},
+                        "versioning": [],
+                        "website": []
+                    }
+                },
+                "KnownAfterApply": [
+                    {
+                        "Path": "acceleration_status",
+                        "Steps": [
+                            "acceleration_status"
+                        ]
+                    },
+                    {
+                        "Path": "acl",
+                        "Steps": [
+                            "acl"
+                        ]
+                    },
+                    {
+                        "Path": "arn",
+                        "Steps": [
+                            "arn"
+                        ]
+                    },
+                    {
+                        "Path": "bucket_domain_name",
+                        "Steps": [
+                            "bucket_domain_name"
+                        ]
+                    },
+                    {
+                        "Path": "bucket_prefix",
+                        "Steps": [
+                            "bucket_prefix"
+                        ]
+                    },
+                    {
+                        "Path": "bucket_regional_domain_name",
+                        "Steps": [
+                            "bucket_regional_domain_name"
+                        ]
+                    },
+                    {
+                        "Path": "cors_rule",
+                        "Steps": [
+                            "cors_rule"
+                        ]
+                    },
+                    {
+                        "Path": "grant",
+                        "Steps": [
+                            "grant"
+                        ]
+                    },
+                    {
+                        "Path": "hosted_zone_id",
+                        "Steps": [
+                            "hosted_zone_id"
+                        ]
+                    },
+                    {
+                        "Path": "id",
+                        "Steps": [
+                            "id"
+                        ]
+                    },
+                    {
+                        "Path": "lifecycle_rule",
+                        "Steps": [
+                            "lifecycle_rule"
+                        ]
+                    },
+                    {
+                        "Path": "logging",
+                        "Steps": [
+                            "logging"
+                        ]
+                    },
+                    {
+                        "Path": "object_lock_configuration",
+                        "Steps": [
+                            "object_lock_configuration"
+                        ]
+                    },
+                    {
+                        "Path": "object_lock_enabled",
+                        "Steps": [
+                            "object_lock_enabled"
+                        ]
+                    },
+                    {
+                        "Path": "policy",
+                        "Steps": [
+                            "policy"
+                        ]
+                    },
+                    {
+                        "Path": "region",
+                        "Steps": [
+                            "region"
+                        ]
+                    },
+                    {
+                        "Path": "replication_configuration",
+                        "Steps": [
+                            "replication_configuration"
+                        ]
+                    },
+                    {
+                        "Path": "request_payer",
+                        "Steps": [
+                            "request_payer"
+                        ]
+                    },
+                    {
+                        "Path": "server_side_encryption_configuration",
+                        "Steps": [
+                            "server_side_encryption_configuration"
+                        ]
+                    },
+                    {
+                        "Path": "tags_all",
+                        "Steps": [
+                            "tags_all"
+                        ]
+                    },
+                    {
+                        "Path": "versioning",
+                        "Steps": [
+                            "versioning"
+                        ]
+                    },
+                    {
+                        "Path": "website",
+                        "Steps": [
+                            "website"
+                        ]
+                    },
+                    {
+                        "Path": "website_domain",
+                        "Steps": [
+                            "website_domain"
+                        ]
+                    },
+                    {
+                        "Path": "website_endpoint",
+                        "Steps": [
+                            "website_endpoint"
+                        ]
+                    }
+                ]
             },
             "RemediationMessage": "",
             "NotApplicable": false
         },
+        {
+            "Name": "S3 buckets must have server-side encryption configured.",
+            "Valid": true,
+            "Severity": "Critical",
+            "Resource": {
+                "Module": {
+                    "Source": "",
+                    "Version": "",
+                    "Dir": "",
+                    "Key": ""
+                },
+                "Planned": {
+                    "address": "aws_s3_bucket.default",
+                    "mode": "managed",
+                    "type": "aws_s3_bucket",
+                    "name": "default",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "bucket": "my-test-bucket",
+                        "force_destroy": false,
+                        "tags": null,
+                        "timeouts": null
+                    },
+                    "sensitive_values": {
+                        "cors_rule": [],
+                        "grant": [],
+                        "lifecycle_rule": [],
+                        "logging": [],
+                        "object_lock_configuration": [],
+                        "replication_configuration": [],
+                        "server_side_encryption_configuration": [],
+                        "tags_all": {},
+                        "versioning": [],
+                        "website": []
+                    }
+                },
+                "Change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "before": null,
+                    "after": {
+                        "bucket": "my-test-bucket",
+                        "force_destroy": false,
+                        "tags": null,
+                        "timeouts": null
+                    },
+                    "after_unknown": {
+                        "acceleration_status": true,
+                        "acl": true,
+                        "arn": true,
+                        "bucket_domain_name": true,
+                        "bucket_prefix": true,
+                        "bucket_regional_domain_name": true,
+                        "cors_rule": true,
+                        "grant": true,
+                        "hosted_zone_id": true,
+                        "id": true,
+                        "lifecycle_rule": true,
+                        "logging": true,
+                        "object_lock_configuration": true,
+                        "object_lock_enabled": true,
+                        "policy": true,
+                        "region": true,
+                        "replication_configuration": true,
+                        "request_payer": true,
+                        "server_side_encryption_configuration": true,
+                        "tags_all": true,
+                        "versioning": true,
+                        "website": true,
+                        "website_domain": true,
+                        "website_endpoint": true
+                    },
+                    "before_sensitive": false,
+                    "after_sensitive": {
+                        "cors_rule": [],
+                        "grant": [],
+                        "lifecycle_rule": [],
+                        "logging": [],
+                        "object_lock_configuration": [],
+                        "replication_configuration": [],
+                        "server_side_encryption_configuration": [],
+                        "tags_all": {},
+                        "versioning": [],
+                        "website": []
+                    }
+                },
+                "KnownAfterApply": [
+                    {
+                        "Path": "acceleration_status",
+                        "Steps": [
+                            "acceleration_status"
+                        ]
+                    },
+                    {
+                        "Path": "acl",
+                        "Steps": [
+                            "acl"
+                        ]
+                    },
+                    {
+                        "Path": "arn",
+                        "Steps": [
+                            "arn"
+                        ]
+                    },
+                    {
+                        "Path": "bucket_domain_name",
+                        "Steps": [
+                            "bucket_domain_name"
+                        ]
+                    },
+                    {
+                        "Path": "bucket_prefix",
+                        "Steps": [
+                            "bucket_prefix"
+                        ]
+                    },
+                    {
+                        "Path": "bucket_regional_domain_name",
+                        "Steps": [
+                            "bucket_regional_domain_name"
+                        ]
+                    },
+                    {
+                        "Path": "cors_rule",
+                        "Steps": [
+                            "cors_rule"
+                        ]
+                    },
+                    {
+                        "Path": "grant",
+                        "Steps": [
+                            "grant"
+                        ]
+                    },
+                    {
+                        "Path": "hosted_zone_id",
+                        "Steps": [
+                            "hosted_zone_id"
+                        ]
+                    },
+                    {
+                        "Path": "id",
+                        "Steps": [
+                            "id"
+                        ]
+                    },
+                    {
+                        "Path": "lifecycle_rule",
+                        "Steps": [
+                            "lifecycle_rule"
+                        ]
+                    },
+                    {
+                        "Path": "logging",
+                        "Steps": [
+                            "logging"
+                        ]
+                    },
+                    {
+                        "Path": "object_lock_configuration",
+                        "Steps": [
+                            "object_lock_configuration"
+                        ]
+                    },
+                    {
+                        "Path": "object_lock_enabled",
+                        "Steps": [
+                            "object_lock_enabled"
+                        ]
+                    },
+                    {
+                        "Path": "policy",
+                        "Steps": [
+                            "policy"
+                        ]
+                    },
+                    {
+                        "Path": "region",
+                        "Steps": [
+                            "region"
+                        ]
+                    },
+                    {
+                        "Path": "replication_configuration",
+                        "Steps": [
+                            "replication_configuration"
+                        ]
+                    },
+                    {
+                        "Path": "request_payer",
+                        "Steps": [
+                            "request_payer"
+                        ]
+                    },
+                    {
+                        "Path": "server_side_encryption_configuration",
+                        "Steps": [
+                            "server_side_encryption_configuration"
+                        ]
+                    },
+                    {
+                        "Path": "tags_all",
+                        "Steps": [
+                            "tags_all"
+                        ]
+                    },
+                    {
+                        "Path": "versioning",
+                        "Steps": [
+                            "versioning"
+                        ]
+                    },
+                    {
+                        "Path": "website",
+                        "Steps": [
+                            "website"
+                        ]
+                    },
+                    {
+                        "Path": "website_domain",
+                        "Steps": [
+                            "website_domain"
+                        ]
+                    },
+                    {
+                        "Path": "website_endpoint",
+                        "Steps": [
+                            "website_endpoint"
+                        ]
+                    }
+                ]
+            },
+            "RemediationMessage": "Encryption is known after apply for this bucket - confirm it is enabled once the plan has been applied.",
+            "NotApplicable": false
+        }
+    ],
+    "ByInvalid": [
         {
             "Name": "All resources must include an Owner tag.",
             "Valid": false,
@@ -527,13 +2702,354 @@
                     "sensitive_values": {
                         "tags_all": {}
                     }
-                }
+                },
+                "Change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "before": null,
+                    "after": {
+                        "acl": "private",
+                        "cache_control": null,
+                        "content": null,
+                        "content_base64": null,
+                        "content_disposition": null,
+                        "content_encoding": null,
+                        "content_language": null,
+                        "force_destroy": false,
+                        "key": "a/magic/object/key",
+                        "metadata": null,
+                        "object_lock_legal_hold_status": null,
+                        "object_lock_mode": null,
+                        "object_lock_retain_until_date": null,
+                        "source": "./outputs.tf",
+                        "source_hash": null,
+                        "tags": null,
+                        "website_redirect": null
+                    },
+                    "after_unknown": {
+                        "bucket": true,
+                        "bucket_key_enabled": true,
+                        "content_type": true,
+                        "etag": true,
+                        "id": true,
+                        "kms_key_id": true,
+                        "server_side_encryption": true,
+                        "storage_class": true,
+                        "tags_all": true,
+                        "version_id": true
+                    },
+                    "before_sensitive": false,
+                    "after_sensitive": {
+                        "tags_all": {}
+                    }
+                },
+                "KnownAfterApply": [
+                    {
+                        "Path": "bucket",
+                        "Steps": [
+                            "bucket"
+                        ]
+                    },
+                    {
+                        "Path": "bucket_key_enabled",
+                        "Steps": [
+                            "bucket_key_enabled"
+                        ]
+                    },
+                    {
+                        "Path": "content_type",
+                        "Steps": [
+                            "content_type"
+                        ]
+                    },
+                    {
+                        "Path": "etag",
+                        "Steps": [
+                            "etag"
+                        ]
+                    },
+                    {
+                        "Path": "id",
+                        "Steps": [
+                            "id"
+                        ]
+                    },
+                    {
+                        "Path": "kms_key_id",
+                        "Steps": [
+                            "kms_key_id"
+                        ]
+                    },
+                    {
+                        "Path": "server_side_encryption",
+                        "Steps": [
+                            "server_side_encryption"
+                        ]
+                    },
+                    {
+                        "Path": "storage_class",
+                        "Steps": [
+                            "storage_class"
+                        ]
+                    },
+                    {
+                        "Path": "tags_all",
+                        "Steps": [
+                            "tags_all"
+                        ]
+                    },
+                    {
+                        "Path": "version_id",
+                        "Steps": [
+                            "version_id"
+                        ]
+                    }
+                ]
+            },
+            "RemediationMessage": "",
+            "NotApplicable": false
+        },
+        {
+            "Name": "All resources must include an Owner tag.",
+            "Valid": false,
+            "Severity": "Major",
+            "Resource": {
+                "Module": {
+                    "Source": "",
+                    "Version": "",
+                    "Dir": "",
+                    "Key": ""
+                },
+                "Planned": {
+                    "address": "aws_s3_bucket.default",
+                    "mode": "managed",
+                    "type": "aws_s3_bucket",
+                    "name": "default",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "bucket": "my-test-bucket",
+                        "force_destroy": false,
+                        "tags": null,
+                        "timeouts": null
+                    },
+                    "sensitive_values": {
+                        "cors_rule": [],
+                        "grant": [],
+                        "lifecycle_rule": [],
+                        "logging": [],
+                        "object_lock_configuration": [],
+                        "replication_configuration": [],
+                        "server_side_encryption_configuration": [],
+                        "tags_all": {},
+                        "versioning": [],
+                        "website": []
+                    }
+                },
+                "Change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "before": null,
+                    "after": {
+                        "bucket": "my-test-bucket",
+                        "force_destroy": false,
+                        "tags": null,
+                        "timeouts": null
+                    },
+                    "after_unknown": {
+                        "acceleration_status": true,
+                        "acl": true,
+                        "arn": true,
+                        "bucket_domain_name": true,
+                        "bucket_prefix": true,
+                        "bucket_regional_domain_name": true,
+                        "cors_rule": true,
+                        "grant": true,
+                        "hosted_zone_id": true,
+                        "id": true,
+                        "lifecycle_rule": true,
+                        "logging": true,
+                        "object_lock_configuration": true,
+                        "object_lock_enabled": true,
+                        "policy": true,
+                        "region": true,
+                        "replication_configuration": true,
+                        "request_payer": true,
+                        "server_side_encryption_configuration": true,
+                        "tags_all": true,
+                        "versioning": true,
+                        "website": true,
+                        "website_domain": true,
+                        "website_endpoint": true
+                    },
+                    "before_sensitive": false,
+                    "after_sensitive": {
+                        "cors_rule": [],
+                        "grant": [],
+                        "lifecycle_rule": [],
+                        "logging": [],
+                        "object_lock_configuration": [],
+                        "replication_configuration": [],
+                        "server_side_encryption_configuration": [],
+                        "tags_all": {},
+                        "versioning": [],
+                        "website": []
+                    }
+                },
+                "KnownAfterApply": [
+                    {
+                        "Path": "acceleration_status",
+                        "Steps": [
+                            "acceleration_status"
+                        ]
+                    },
+                    {
+                        "Path": "acl",
+                        "Steps": [
+                            "acl"
+                        ]
+                    },
+                    {
+                        "Path": "arn",
+                        "Steps": [
+                            "arn"
+                        ]
+                    },
+                    {
+                        "Path": "bucket_domain_name",
+                        "Steps": [
+                            "bucket_domain_name"
+                        ]
+                    },
+                    {
+                        "Path": "bucket_prefix",
+                        "Steps": [
+                            "bucket_prefix"
+                        ]
+                    },
+                    {
+                        "Path": "bucket_regional_domain_name",
+                        "Steps": [
+                            "bucket_regional_domain_name"
+                        ]
+                    },
+                    {
+                        "Path": "cors_rule",
+                        "Steps": [
+                            "cors_rule"
+                        ]
+                    },
+                    {
+                        "Path": "grant",
+                        "Steps": [
+                            "grant"
+                        ]
+                    },
+                    {
+                        "Path": "hosted_zone_id",
+                        "Steps": [
+                            "hosted_zone_id"
+                        ]
+                    },
+                    {
+                        "Path": "id",
+                        "Steps": [
+                            "id"
+                        ]
+                    },
+                    {
+                        "Path": "lifecycle_rule",
+                        "Steps": [
+                            "lifecycle_rule"
+                        ]
+                    },
+                    {
+                        "Path": "logging",
+                        "Steps": [
+                            "logging"
+                        ]
+                    },
+                    {
+                        "Path": "object_lock_configuration",
+                        "Steps": [
+                            "object_lock_configuration"
+                        ]
+                    },
+                    {
+                        "Path": "object_lock_enabled",
+                        "Steps": [
+                            "object_lock_enabled"
+                        ]
+                    },
+                    {
+                        "Path": "policy",
+                        "Steps": [
+                            "policy"
+                        ]
+                    },
+                    {
+                        "Path": "region",
+                        "Steps": [
+                            "region"
+                        ]
+                    },
+                    {
+                        "Path": "replication_configuration",
+                        "Steps": [
+                            "replication_configuration"
+                        ]
+                    },
+                    {
+                        "Path": "request_payer",
+                        "Steps": [
+                            "request_payer"
+                        ]
+                    },
+                    {
+                        "Path": "server_side_encryption_configuration",
+                        "Steps": [
+                            "server_side_encryption_configuration"
+                        ]
+                    },
+                    {
+                        "Path": "tags_all",
+                        "Steps": [
+                            "tags_all"
+                        ]
+                    },
+                    {
+                        "Path": "versioning",
+                        "Steps": [
+                            "versioning"
+                        ]
+                    },
+                    {
+                        "Path": "website",
+                        "Steps": [
+                            "website"
+                        ]
+                    },
+                    {
+                        "Path": "website_domain",
+                        "Steps": [
+                            "website_domain"
+                        ]
+                    },
+                    {
+                        "Path": "website_endpoint",
+                        "Steps": [
+                            "website_endpoint"
+                        ]
+                    }
+                ]
             },
             "RemediationMessage": "",
             "NotApplicable": false
         }
     ],
-    "TotalResults": 4,
-    "ValidResults": 2,
-    "Score": 50
+    "TotalResults": 5,
+    "ValidResults": 3,
+    "Score": 60
 }

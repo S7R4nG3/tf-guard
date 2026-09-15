@@ -2,7 +2,30 @@ package tfGuard
 
 import (
 	tfresources "github.com/S7R4nG3/terraform-resources"
+	tfjson "github.com/hashicorp/terraform-json"
 	"github.com/sirupsen/logrus"
+)
+
+// The planned change types are re-exported here so that Rules, and any
+// helpers you factor out of them, can be written using only this package.
+type (
+	// A Change describes the change Terraform plans to make to a resource -
+	// the actions it will take, the prior state in Before, the planned state
+	// in After, and the attributes forcing a replacement in ReplacePaths.
+	// Resources the plan declares no change for carry a zero valued Change.
+	Change = tfjson.Change
+
+	// A KnownAfterApply collection enumerates every attribute of a resource
+	// whose value Terraform cannot resolve until the plan is applied.
+	//
+	// Has matches an attribute address exactly, HasPrefix also matches
+	// anything nested beneath it, and Paths lists every unknown attribute.
+	KnownAfterApply = tfresources.KnownAfterApply
+
+	// An UnknownAttribute identifies a single attribute that is known after
+	// apply, by its Path relative to the resource - "tags_all",
+	// "statement[0].resources[1]" - and by that address split into Steps.
+	UnknownAttribute = tfresources.UnknownAttribute
 )
 
 // Some default values for Severities that can be easily
@@ -28,6 +51,23 @@ var (
 // project's StateResource struct by linking any resources
 // created from modules back to their parent and children
 // addresses. The output is a Result struct as defined below.
+//
+// A Resource carries four groups of attributes to evaluate: its
+// Planned values, the Module that declared it, the Change Terraform
+// intends to make to it, and its KnownAfterApply attributes.
+//
+// Attributes that are known after apply are deliberately absent from
+// Planned.AttributeValues, so a rule reading only the planned values
+// cannot tell an attribute Terraform will compute during the apply
+// apart from one that was never configured, and will report the
+// resource as invalid for a setting that is in fact going to be set.
+// Consulting KnownAfterApply resolves that ambiguity:
+//
+//	if _, configured := r.Planned.AttributeValues[attr]; !configured {
+//		if r.KnownAfterApply.HasPrefix(attr) {
+//			... Terraform will resolve this during the apply ...
+//		}
+//	}
 //
 // Check out the [terraform-json](https://github.com/hashicorp/terraform-json/blob/main/state.go#L124) project for more
 // details on how you can access different resource values.

@@ -13,8 +13,11 @@ func main() {
 			RuleS3BucketMustBeTagged,
 			RuleBucketObjectsMustBeTagged,
 			RuleResourcesMustHaveOwnerTag,
+			RuleS3BucketsMustBeEncrypted,
 		},
 		Debug: true,
+		// The encryption rule passes, and passing results are hidden by default.
+		VerboseStdOut: true,
 	}
 	g.Scan()
 }
@@ -53,6 +56,43 @@ func RuleS3BucketMustBeTagged(res tfresources.Resource) tfGuard.Result {
 		}
 	}
 	return tfGuard.Result{NotApplicable: true}
+}
+
+// Validating a setting flagged as "known after apply".
+//
+// Encryption is usually managed by a separate resource, leaving this attribute
+// absent from the planned values just as it would be if never configured at
+// all. KnownAfterApply tells the two apart. HasPrefix matches the block whether
+// Terraform reports it as unknown in whole or only in part.
+func RuleS3BucketsMustBeEncrypted(res tfresources.Resource) tfGuard.Result {
+	name := "S3 buckets must have server-side encryption configured."
+	encryption := "server_side_encryption_configuration"
+	if res.Planned.Type != "aws_s3_bucket" {
+		return tfGuard.Result{NotApplicable: true}
+	}
+	if _, configured := res.Planned.AttributeValues[encryption]; configured {
+		return tfGuard.Result{
+			Name:     name,
+			Valid:    true,
+			Severity: tfGuard.Severity.Critical,
+		}
+	}
+	// Unresolvable until the apply, so it cannot be failed. Passed here with
+	// the deferral noted - NotApplicable would drop it from the score instead.
+	if res.KnownAfterApply.HasPrefix(encryption) {
+		return tfGuard.Result{
+			Name:               name,
+			Valid:              true,
+			Severity:           tfGuard.Severity.Critical,
+			RemediationMessage: "Encryption is known after apply for this bucket - confirm it is enabled once the plan has been applied.",
+		}
+	}
+	return tfGuard.Result{
+		Name:               name,
+		Valid:              false,
+		Severity:           tfGuard.Severity.Critical,
+		RemediationMessage: "Add a server_side_encryption_configuration block, or an aws_s3_bucket_server_side_encryption_configuration resource, for this bucket.",
+	}
 }
 
 func RuleBucketObjectsMustBeTagged(res tfresources.Resource) tfGuard.Result {
