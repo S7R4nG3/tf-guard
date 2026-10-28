@@ -29,9 +29,14 @@ func (d *Deployment) stringResultFormatter() {
 		body.WriteString(c.Sprintf("  Rule: %s\n\tValid: %v\n\tSeverity: %s\n\tResource: %s\n\tType: %s", res.Name, res.Valid, res.Severity, thisResource.Address, thisResource.Type))
 		if (tfresources.Module{}) != res.Resource.Module {
 			thisModule := res.Resource.Module
-			body.WriteString(c.Sprintf("\n\t      ⌙ Module: %s\n\t\tSource: %s", thisModule.Key, thisModule.Source))
-			if thisModule.Version != "" {
-				body.WriteString(c.Sprintf("\n\t\tVersion: %v", thisModule.Version))
+			body.WriteString(c.Sprintf("\n\t      ⌙ Module: %s\n\t\tSource: %s", thisModule.Key, thisModule.ResolvedSource))
+			// A nested module declared with a local path records only that path as
+			// its Source, so it is shown alongside where it was resolved from.
+			if thisModule.Source != thisModule.ResolvedSource {
+				body.WriteString(c.Sprintf("\n\t\tDeclared Source: %s", thisModule.Source))
+			}
+			if thisModule.ResolvedVersion != "" {
+				body.WriteString(c.Sprintf("\n\t\tVersion: %v", thisModule.ResolvedVersion))
 			}
 		}
 		if res.RemediationMessage != "" {

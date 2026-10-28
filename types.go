@@ -48,9 +48,11 @@ var (
 // against the planned resources.
 //
 // The input is a Resource type that extends the terraform-json
-// project's StateResource struct by linking any resources
-// created from modules back to their parent and children
-// addresses. The output is a Result struct as defined below.
+// project's StateResource struct by linking each resource to
+// the module that declares it - including the source that
+// module's contents are resolved from and the chain of parent
+// modules leading to it. The output is a Result struct as
+// defined below.
 //
 // A Resource carries four groups of attributes to evaluate: its
 // Planned values, the Module that declared it, the Change Terraform

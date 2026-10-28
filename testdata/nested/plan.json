@@ -1,0 +1,946 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.15.9",
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "terraform_data.root",
+          "mode": "managed",
+          "type": "terraform_data",
+          "name": "root",
+          "provider_name": "terraform.io/builtin/terraform",
+          "schema_version": 0,
+          "values": {
+            "input": "root",
+            "triggers_replace": null
+          },
+          "sensitive_values": {}
+        }
+      ],
+      "child_modules": [
+        {
+          "resources": [
+            {
+              "address": "module.app[\"blue\"].terraform_data.app",
+              "mode": "managed",
+              "type": "terraform_data",
+              "name": "app",
+              "provider_name": "terraform.io/builtin/terraform",
+              "schema_version": 0,
+              "values": {
+                "input": "app",
+                "triggers_replace": null
+              },
+              "sensitive_values": {}
+            }
+          ],
+          "address": "module.app[\"blue\"]",
+          "child_modules": [
+            {
+              "resources": [
+                {
+                  "address": "module.app[\"blue\"].module.policy.terraform_data.policy",
+                  "mode": "managed",
+                  "type": "terraform_data",
+                  "name": "policy",
+                  "provider_name": "terraform.io/builtin/terraform",
+                  "schema_version": 0,
+                  "values": {
+                    "input": "policy",
+                    "triggers_replace": null
+                  },
+                  "sensitive_values": {}
+                }
+              ],
+              "address": "module.app[\"blue\"].module.policy"
+            },
+            {
+              "resources": [
+                {
+                  "address": "module.app[\"blue\"].module.bucket[0].data.terraform_remote_state.lookup",
+                  "mode": "data",
+                  "type": "terraform_remote_state",
+                  "name": "lookup",
+                  "provider_name": "terraform.io/builtin/terraform",
+                  "schema_version": 0,
+                  "values": {
+                    "backend": "local",
+                    "config": {
+                      "path": "modules/app/bucket/empty.tfstate"
+                    },
+                    "defaults": {},
+                    "workspace": null
+                  },
+                  "sensitive_values": {
+                    "config": {},
+                    "defaults": {}
+                  }
+                },
+                {
+                  "address": "module.app[\"blue\"].module.bucket[0].terraform_data.bucket",
+                  "mode": "managed",
+                  "type": "terraform_data",
+                  "name": "bucket",
+                  "provider_name": "terraform.io/builtin/terraform",
+                  "schema_version": 0,
+                  "values": {
+                    "input": "bucket",
+                    "triggers_replace": null
+                  },
+                  "sensitive_values": {}
+                }
+              ],
+              "address": "module.app[\"blue\"].module.bucket[0]"
+            },
+            {
+              "resources": [
+                {
+                  "address": "module.app[\"blue\"].module.bucket[1].data.terraform_remote_state.lookup",
+                  "mode": "data",
+                  "type": "terraform_remote_state",
+                  "name": "lookup",
+                  "provider_name": "terraform.io/builtin/terraform",
+                  "schema_version": 0,
+                  "values": {
+                    "backend": "local",
+                    "config": {
+                      "path": "modules/app/bucket/empty.tfstate"
+                    },
+                    "defaults": {},
+                    "workspace": null
+                  },
+                  "sensitive_values": {
+                    "config": {},
+                    "defaults": {}
+                  }
+                },
+                {
+                  "address": "module.app[\"blue\"].module.bucket[1].terraform_data.bucket",
+                  "mode": "managed",
+                  "type": "terraform_data",
+                  "name": "bucket",
+                  "provider_name": "terraform.io/builtin/terraform",
+                  "schema_version": 0,
+                  "values": {
+                    "input": "bucket",
+                    "triggers_replace": null
+                  },
+                  "sensitive_values": {}
+                }
+              ],
+              "address": "module.app[\"blue\"].module.bucket[1]"
+            }
+          ]
+        },
+        {
+          "resources": [
+            {
+              "address": "module.app[\"green\"].terraform_data.app",
+              "mode": "managed",
+              "type": "terraform_data",
+              "name": "app",
+              "provider_name": "terraform.io/builtin/terraform",
+              "schema_version": 0,
+              "values": {
+                "input": "app",
+                "triggers_replace": null
+              },
+              "sensitive_values": {}
+            }
+          ],
+          "address": "module.app[\"green\"]",
+          "child_modules": [
+            {
+              "resources": [
+                {
+                  "address": "module.app[\"green\"].module.policy.terraform_data.policy",
+                  "mode": "managed",
+                  "type": "terraform_data",
+                  "name": "policy",
+                  "provider_name": "terraform.io/builtin/terraform",
+                  "schema_version": 0,
+                  "values": {
+                    "input": "policy",
+                    "triggers_replace": null
+                  },
+                  "sensitive_values": {}
+                }
+              ],
+              "address": "module.app[\"green\"].module.policy"
+            },
+            {
+              "resources": [
+                {
+                  "address": "module.app[\"green\"].module.bucket[0].data.terraform_remote_state.lookup",
+                  "mode": "data",
+                  "type": "terraform_remote_state",
+                  "name": "lookup",
+                  "provider_name": "terraform.io/builtin/terraform",
+                  "schema_version": 0,
+                  "values": {
+                    "backend": "local",
+                    "config": {
+                      "path": "modules/app/bucket/empty.tfstate"
+                    },
+                    "defaults": {},
+                    "workspace": null
+                  },
+                  "sensitive_values": {
+                    "config": {},
+                    "defaults": {}
+                  }
+                },
+                {
+                  "address": "module.app[\"green\"].module.bucket[0].terraform_data.bucket",
+                  "mode": "managed",
+                  "type": "terraform_data",
+                  "name": "bucket",
+                  "provider_name": "terraform.io/builtin/terraform",
+                  "schema_version": 0,
+                  "values": {
+                    "input": "bucket",
+                    "triggers_replace": null
+                  },
+                  "sensitive_values": {}
+                }
+              ],
+              "address": "module.app[\"green\"].module.bucket[0]"
+            },
+            {
+              "resources": [
+                {
+                  "address": "module.app[\"green\"].module.bucket[1].data.terraform_remote_state.lookup",
+                  "mode": "data",
+                  "type": "terraform_remote_state",
+                  "name": "lookup",
+                  "provider_name": "terraform.io/builtin/terraform",
+                  "schema_version": 0,
+                  "values": {
+                    "backend": "local",
+                    "config": {
+                      "path": "modules/app/bucket/empty.tfstate"
+                    },
+                    "defaults": {},
+                    "workspace": null
+                  },
+                  "sensitive_values": {
+                    "config": {},
+                    "defaults": {}
+                  }
+                },
+                {
+                  "address": "module.app[\"green\"].module.bucket[1].terraform_data.bucket",
+                  "mode": "managed",
+                  "type": "terraform_data",
+                  "name": "bucket",
+                  "provider_name": "terraform.io/builtin/terraform",
+                  "schema_version": 0,
+                  "values": {
+                    "input": "bucket",
+                    "triggers_replace": null
+                  },
+                  "sensitive_values": {}
+                }
+              ],
+              "address": "module.app[\"green\"].module.bucket[1]"
+            }
+          ]
+        },
+        {
+          "resources": [
+            {
+              "address": "module.remote.terraform_data.outer",
+              "mode": "managed",
+              "type": "terraform_data",
+              "name": "outer",
+              "provider_name": "terraform.io/builtin/terraform",
+              "schema_version": 0,
+              "values": {
+                "input": "outer",
+                "triggers_replace": null
+              },
+              "sensitive_values": {}
+            }
+          ],
+          "address": "module.remote",
+          "child_modules": [
+            {
+              "resources": [
+                {
+                  "address": "module.remote.module.sibling.terraform_data.sibling",
+                  "mode": "managed",
+                  "type": "terraform_data",
+                  "name": "sibling",
+                  "provider_name": "terraform.io/builtin/terraform",
+                  "schema_version": 0,
+                  "values": {
+                    "input": "sibling",
+                    "triggers_replace": null
+                  },
+                  "sensitive_values": {}
+                }
+              ],
+              "address": "module.remote.module.sibling"
+            },
+            {
+              "resources": [
+                {
+                  "address": "module.remote.module.inner.terraform_data.inner",
+                  "mode": "managed",
+                  "type": "terraform_data",
+                  "name": "inner",
+                  "provider_name": "terraform.io/builtin/terraform",
+                  "schema_version": 0,
+                  "values": {
+                    "input": "inner",
+                    "triggers_replace": null
+                  },
+                  "sensitive_values": {}
+                }
+              ],
+              "address": "module.remote.module.inner"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "terraform_data.root",
+      "mode": "managed",
+      "type": "terraform_data",
+      "name": "root",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "input": "root",
+          "triggers_replace": null
+        },
+        "after_unknown": {
+          "id": true,
+          "output": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "module.app[\"blue\"].terraform_data.app",
+      "module_address": "module.app[\"blue\"]",
+      "mode": "managed",
+      "type": "terraform_data",
+      "name": "app",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "input": "app",
+          "triggers_replace": null
+        },
+        "after_unknown": {
+          "id": true,
+          "output": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "module.app[\"green\"].terraform_data.app",
+      "module_address": "module.app[\"green\"]",
+      "mode": "managed",
+      "type": "terraform_data",
+      "name": "app",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "input": "app",
+          "triggers_replace": null
+        },
+        "after_unknown": {
+          "id": true,
+          "output": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "module.remote.terraform_data.outer",
+      "module_address": "module.remote",
+      "mode": "managed",
+      "type": "terraform_data",
+      "name": "outer",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "input": "outer",
+          "triggers_replace": null
+        },
+        "after_unknown": {
+          "id": true,
+          "output": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "module.app[\"blue\"].module.bucket[0].data.terraform_remote_state.lookup",
+      "module_address": "module.app[\"blue\"].module.bucket[0]",
+      "mode": "data",
+      "type": "terraform_remote_state",
+      "name": "lookup",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "read"
+        ],
+        "before": null,
+        "after": {
+          "backend": "local",
+          "config": {
+            "path": "modules/app/bucket/empty.tfstate"
+          },
+          "defaults": {},
+          "workspace": null
+        },
+        "after_unknown": {
+          "config": {},
+          "defaults": {
+            "bucket_id": true
+          },
+          "outputs": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "config": {},
+          "defaults": {}
+        }
+      },
+      "action_reason": "read_because_config_unknown"
+    },
+    {
+      "address": "module.app[\"blue\"].module.bucket[0].terraform_data.bucket",
+      "module_address": "module.app[\"blue\"].module.bucket[0]",
+      "mode": "managed",
+      "type": "terraform_data",
+      "name": "bucket",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "input": "bucket",
+          "triggers_replace": null
+        },
+        "after_unknown": {
+          "id": true,
+          "output": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "module.app[\"blue\"].module.bucket[1].data.terraform_remote_state.lookup",
+      "module_address": "module.app[\"blue\"].module.bucket[1]",
+      "mode": "data",
+      "type": "terraform_remote_state",
+      "name": "lookup",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "read"
+        ],
+        "before": null,
+        "after": {
+          "backend": "local",
+          "config": {
+            "path": "modules/app/bucket/empty.tfstate"
+          },
+          "defaults": {},
+          "workspace": null
+        },
+        "after_unknown": {
+          "config": {},
+          "defaults": {
+            "bucket_id": true
+          },
+          "outputs": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "config": {},
+          "defaults": {}
+        }
+      },
+      "action_reason": "read_because_config_unknown"
+    },
+    {
+      "address": "module.app[\"blue\"].module.bucket[1].terraform_data.bucket",
+      "module_address": "module.app[\"blue\"].module.bucket[1]",
+      "mode": "managed",
+      "type": "terraform_data",
+      "name": "bucket",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "input": "bucket",
+          "triggers_replace": null
+        },
+        "after_unknown": {
+          "id": true,
+          "output": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "module.app[\"blue\"].module.policy.terraform_data.policy",
+      "module_address": "module.app[\"blue\"].module.policy",
+      "mode": "managed",
+      "type": "terraform_data",
+      "name": "policy",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "input": "policy",
+          "triggers_replace": null
+        },
+        "after_unknown": {
+          "id": true,
+          "output": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "module.app[\"green\"].module.bucket[0].data.terraform_remote_state.lookup",
+      "module_address": "module.app[\"green\"].module.bucket[0]",
+      "mode": "data",
+      "type": "terraform_remote_state",
+      "name": "lookup",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "read"
+        ],
+        "before": null,
+        "after": {
+          "backend": "local",
+          "config": {
+            "path": "modules/app/bucket/empty.tfstate"
+          },
+          "defaults": {},
+          "workspace": null
+        },
+        "after_unknown": {
+          "config": {},
+          "defaults": {
+            "bucket_id": true
+          },
+          "outputs": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "config": {},
+          "defaults": {}
+        }
+      },
+      "action_reason": "read_because_config_unknown"
+    },
+    {
+      "address": "module.app[\"green\"].module.bucket[0].terraform_data.bucket",
+      "module_address": "module.app[\"green\"].module.bucket[0]",
+      "mode": "managed",
+      "type": "terraform_data",
+      "name": "bucket",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "input": "bucket",
+          "triggers_replace": null
+        },
+        "after_unknown": {
+          "id": true,
+          "output": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "module.app[\"green\"].module.bucket[1].data.terraform_remote_state.lookup",
+      "module_address": "module.app[\"green\"].module.bucket[1]",
+      "mode": "data",
+      "type": "terraform_remote_state",
+      "name": "lookup",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "read"
+        ],
+        "before": null,
+        "after": {
+          "backend": "local",
+          "config": {
+            "path": "modules/app/bucket/empty.tfstate"
+          },
+          "defaults": {},
+          "workspace": null
+        },
+        "after_unknown": {
+          "config": {},
+          "defaults": {
+            "bucket_id": true
+          },
+          "outputs": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "config": {},
+          "defaults": {}
+        }
+      },
+      "action_reason": "read_because_config_unknown"
+    },
+    {
+      "address": "module.app[\"green\"].module.bucket[1].terraform_data.bucket",
+      "module_address": "module.app[\"green\"].module.bucket[1]",
+      "mode": "managed",
+      "type": "terraform_data",
+      "name": "bucket",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "input": "bucket",
+          "triggers_replace": null
+        },
+        "after_unknown": {
+          "id": true,
+          "output": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "module.app[\"green\"].module.policy.terraform_data.policy",
+      "module_address": "module.app[\"green\"].module.policy",
+      "mode": "managed",
+      "type": "terraform_data",
+      "name": "policy",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "input": "policy",
+          "triggers_replace": null
+        },
+        "after_unknown": {
+          "id": true,
+          "output": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "module.remote.module.inner.terraform_data.inner",
+      "module_address": "module.remote.module.inner",
+      "mode": "managed",
+      "type": "terraform_data",
+      "name": "inner",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "input": "inner",
+          "triggers_replace": null
+        },
+        "after_unknown": {
+          "id": true,
+          "output": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "module.remote.module.sibling.terraform_data.sibling",
+      "module_address": "module.remote.module.sibling",
+      "mode": "managed",
+      "type": "terraform_data",
+      "name": "sibling",
+      "provider_name": "terraform.io/builtin/terraform",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "input": "sibling",
+          "triggers_replace": null
+        },
+        "after_unknown": {
+          "id": true,
+          "output": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    }
+  ],
+  "configuration": {
+    "provider_config": {
+      "terraform": {
+        "name": "terraform",
+        "full_name": "terraform.io/builtin/terraform"
+      }
+    },
+    "root_module": {
+      "resources": [
+        {
+          "address": "terraform_data.root",
+          "mode": "managed",
+          "type": "terraform_data",
+          "name": "root",
+          "provider_config_key": "terraform",
+          "expressions": {
+            "input": {
+              "constant_value": "root"
+            }
+          },
+          "schema_version": 0
+        }
+      ],
+      "module_calls": {
+        "app": {
+          "source": "./modules/app",
+          "module": {
+            "resources": [
+              {
+                "address": "terraform_data.app",
+                "mode": "managed",
+                "type": "terraform_data",
+                "name": "app",
+                "provider_config_key": "terraform",
+                "expressions": {
+                  "input": {
+                    "constant_value": "app"
+                  }
+                },
+                "schema_version": 0
+              }
+            ],
+            "module_calls": {
+              "bucket": {
+                "source": "./bucket",
+                "count_expression": {
+                  "constant_value": 2
+                },
+                "module": {
+                  "resources": [
+                    {
+                      "address": "terraform_data.bucket",
+                      "mode": "managed",
+                      "type": "terraform_data",
+                      "name": "bucket",
+                      "provider_config_key": "terraform",
+                      "expressions": {
+                        "input": {
+                          "constant_value": "bucket"
+                        }
+                      },
+                      "schema_version": 0
+                    },
+                    {
+                      "address": "data.terraform_remote_state.lookup",
+                      "mode": "data",
+                      "type": "terraform_remote_state",
+                      "name": "lookup",
+                      "provider_config_key": "terraform",
+                      "expressions": {
+                        "backend": {
+                          "constant_value": "local"
+                        },
+                        "config": {
+                          "references": [
+                            "path.module"
+                          ]
+                        },
+                        "defaults": {
+                          "references": [
+                            "terraform_data.bucket.id",
+                            "terraform_data.bucket"
+                          ]
+                        }
+                      },
+                      "schema_version": 0
+                    }
+                  ]
+                }
+              },
+              "policy": {
+                "source": "../policy",
+                "module": {
+                  "resources": [
+                    {
+                      "address": "terraform_data.policy",
+                      "mode": "managed",
+                      "type": "terraform_data",
+                      "name": "policy",
+                      "provider_config_key": "terraform",
+                      "expressions": {
+                        "input": {
+                          "constant_value": "policy"
+                        }
+                      },
+                      "schema_version": 0
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "remote": {
+          "source": "git::https://example.com/org/terraform-modules.git//modules/outer?ref=v1.0.0",
+          "module": {
+            "resources": [
+              {
+                "address": "terraform_data.outer",
+                "mode": "managed",
+                "type": "terraform_data",
+                "name": "outer",
+                "provider_config_key": "terraform",
+                "expressions": {
+                  "input": {
+                    "constant_value": "outer"
+                  }
+                },
+                "schema_version": 0
+              }
+            ],
+            "module_calls": {
+              "inner": {
+                "source": "./inner",
+                "module": {
+                  "resources": [
+                    {
+                      "address": "terraform_data.inner",
+                      "mode": "managed",
+                      "type": "terraform_data",
+                      "name": "inner",
+                      "provider_config_key": "terraform",
+                      "expressions": {
+                        "input": {
+                          "constant_value": "inner"
+                        }
+                      },
+                      "schema_version": 0
+                    }
+                  ]
+                }
+              },
+              "sibling": {
+                "source": "../sibling",
+                "module": {
+                  "resources": [
+                    {
+                      "address": "terraform_data.sibling",
+                      "mode": "managed",
+                      "type": "terraform_data",
+                      "name": "sibling",
+                      "provider_config_key": "terraform",
+                      "expressions": {
+                        "input": {
+                          "constant_value": "sibling"
+                        }
+                      },
+                      "schema_version": 0
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "relevant_attributes": [
+    {
+      "resource": "module.app[\"blue\"].module.bucket[0].terraform_data.bucket",
+      "attribute": [
+        "id"
+      ]
+    },
+    {
+      "resource": "module.app[\"blue\"].module.bucket[1].terraform_data.bucket",
+      "attribute": [
+        "id"
+      ]
+    },
+    {
+      "resource": "module.app[\"green\"].module.bucket[0].terraform_data.bucket",
+      "attribute": [
+        "id"
+      ]
+    },
+    {
+      "resource": "module.app[\"green\"].module.bucket[1].terraform_data.bucket",
+      "attribute": [
+        "id"
+      ]
+    }
+  ],
+  "timestamp": "2026-10-28T15:25:36Z",
+  "applyable": true,
+  "complete": true,
+  "errored": false
+}

@@ -1,0 +1,39 @@
+{
+    "Modules": [
+        {
+            "Key": "",
+            "Source": "",
+            "Dir": "."
+        },
+        {
+            "Key": "app",
+            "Source": "./modules/app",
+            "Dir": "modules/app"
+        },
+        {
+            "Key": "app.bucket",
+            "Source": "./bucket",
+            "Dir": "modules/app/bucket"
+        },
+        {
+            "Key": "app.policy",
+            "Source": "../policy",
+            "Dir": "modules/policy"
+        },
+        {
+            "Key": "remote",
+            "Source": "git::https://example.com/org/terraform-modules.git//modules/outer?ref=v1.0.0",
+            "Dir": ".terraform/modules/remote/modules/outer"
+        },
+        {
+            "Key": "remote.inner",
+            "Source": "./inner",
+            "Dir": ".terraform/modules/remote/modules/outer/inner"
+        },
+        {
+            "Key": "remote.sibling",
+            "Source": "../sibling",
+            "Dir": ".terraform/modules/remote/modules/sibling"
+        }
+    ]
+}

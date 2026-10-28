@@ -34,12 +34,12 @@ d := Deployment{
 }
 ```
 
-Additionally, if utilizing modules, a `ModulesFile` can be provided as the path to the modules.json file for the deployment that is used to link the underlying resources being created from within a module, to its parent and children addresses. _If not provided, a best effort is made to identify the file in the execution directory._
+Additionally, if utilizing modules, a `ModulesFile` can be provided as the path to the deployment's `modules.json` file - written by `terraform init` to `.terraform/modules/modules.json` - which is used to link each resource to the module that declares it on `r.Module` (see [Modules](#modules)). _If not provided, a best effort is made to identify the file in the execution directory._
 
 ```go
 d := Deployment{
     PlanFile: "./myplanfile.json",
-    ModulesFile: "./.terraform/modules.json",
+    ModulesFile: "./.terraform/modules/modules.json",
     ...
 }
 ```
@@ -49,7 +49,7 @@ Next, the functions to be executed against the resources must be provided. These
 ```go
 d := Deployment{
     PlanFile: "./myplanfile.json",
-    ModulesFile: "./.terraform/modules.json",
+    ModulesFile: "./.terraform/modules/modules.json",
     Rules: []Rule{
         ...
     },
@@ -69,7 +69,7 @@ An example Rule declaration to showing access to Terraform module attributes as 
 func main(){
     d := Deployment{
         PlanFile: "./myplanfile.json",
-        ModulesFile: "./.terraform/modules.json",
+        ModulesFile: "./.terraform/modules/modules.json",
         Rules: []Rule{
             MyCustomTRule
         },
@@ -78,7 +78,7 @@ func main(){
 }
 
 func MyCustomTFRule(r tfresources.Resource) tfGuard.Result {
-    moduleReference := r.Module.Version           // Immutable versioning for the module linked to this resource
+    moduleReference := r.Module.ResolvedVersion   // Immutable versioning for the module linked to this resource
     attributeValues := r.Planned.AttributeValues  // map[string]interface{} Containing resource attribute values
     resourceType := r.Planned.Type                // A Terraform resource type - like aws_s3_bucket
     plannedActions := r.Change.Actions            // What Terraform intends to do - create, update, delete, ...
@@ -92,6 +92,57 @@ func MyCustomTFRule(r tfresources.Resource) tfGuard.Result {
     }
 }
 ```
+
+### Modules
+
+`r.Module` is the module that directly declares a resource. For a resource within a nested module this is the innermost module, and `r.Module.Parent` leads back through each of the module calls above it. Resources declared directly in the root module are left with a zero valued `Module`.
+
+`Source` is the source exactly as it was written in the module's declaration, so a module declared as `source = "./policy"` inside a Git or registry module records only `./policy` - which doesn't say where its contents came from. `ResolvedSource` and `ResolvedVersion` resolve such local sources against their parent module, the same way Terraform installs them, and are the ones to reach for in rules about where module code comes from:
+
+```go
+func RuleModulesMustBeSourcedFromRegistry(r tfresources.Resource) tfGuard.Result {
+    name := "Modules must be sourced from the Terraform Registry."
+    if r.Module.Key == "" {
+        return tfGuard.Result{NotApplicable: true}  // Declared in the root module
+    }
+    return tfGuard.Result{
+        Name:     name,
+        Valid:    strings.Contains(r.Module.ResolvedSource, "registry.terraform.io"),
+        Severity: tfGuard.Severity.Critical,
+    }
+}
+```
+
+`Root()` returns the top-level module - the module call in your own configuration that led to the resource - which suits rules about your configuration's module calls rather than about where the code comes from:
+
+```go
+r.Planned.Address              // module.app["blue"].module.policy.terraform_data.policy
+r.Module.Key                   // app.policy
+r.Module.Source                // ../policy
+r.Module.ResolvedSource        // ./modules/policy
+r.Module.Root().Key            // app
+
+for m := r.Module.Parent; m != nil; m = m.Parent {
+    fmt.Println(m.Key, m.ResolvedSource)  // app ./modules/app
+}
+```
+
+The StdOut results show a resource's module by its `ResolvedSource` and `ResolvedVersion`, adding the `Declared Source` whenever the two differ:
+
+```sh
+[ ❌ ]  Rule: Modules must be sourced from the Terraform Registry.
+	Valid: false
+	Severity: Critical
+	Resource: module.remote.module.sibling.terraform_data.sibling
+	Type: terraform_data
+	      ⌙ Module: remote.sibling
+		Source: git::https://example.com/org/terraform-modules.git//modules/sibling?ref=v1.0.0
+		Declared Source: ../sibling
+```
+
+See the terraform-resources [Nested Modules](https://github.com/S7R4nG3/terraform-resources#nested-modules) documentation for how each kind of source is resolved.
+
+> **Upgrading from terraform-resources v0.4.x:** resources within nested modules, and data sources within any module, were previously left with a zero valued `Module`. They are now linked to the module that declares them, so rules that skip resources without a module will start evaluating them - which can change your overall score - and rules checking `Source` should move to `ResolvedSource`.
 
 ### Known After Apply
 
@@ -297,7 +348,7 @@ for _, res := range results.ByInvalid {
 
 Both keys are always present in the output - an empty list when no results fall into that grouping. See [resultsJson.json](./examples/simple/resultsJson.json) for a full example response.
 
-Every result embeds the resource it was evaluated against, so each one also carries that resource's `Change` and `KnownAfterApply` alongside its `Module` and `Planned` values. The planned change includes the resource's full before and after states, which makes the output considerably larger than the results alone - decode only the keys you need rather than the whole document if that matters to your automation.
+Every result embeds the resource it was evaluated against, so each one also carries that resource's `Change` and `KnownAfterApply` alongside its `Module` and `Planned` values. A resource declared within a module also carries that module's `ResolvedSource`, `ResolvedVersion`, and its full chain of `Parent` modules. The planned change includes the resource's full before and after states, which makes the output considerably larger than the results alone - decode only the keys you need rather than the whole document if that matters to your automation.
 
 A `Deployment` can legitimately finish with _no_ results at all - if every rule is flagged `NotApplicable` against every resource in the plan, for instance, which is common when a plan contains only resource types none of your rules target. In that case the groupings are empty, `TotalResults` is `0`, and the `Score` is reported as `100`. Check `TotalResults` rather than `Score` alone if you need to distinguish "everything passed" from "nothing was evaluated".
 

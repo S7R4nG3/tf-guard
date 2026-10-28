@@ -147,3 +147,79 @@ func TestKnownAfterApplyIsExposedToRules(t *testing.T) {
 		t.Errorf("Test Error -- expected the re-exported change types to carry the resource's planned change")
 	}
 }
+
+// Resources within nested modules must be linked to the module that declares
+// them, with local sources resolved against their parent modules so a Rule can
+// identify exactly where a resource's module is sourced from.
+func TestNestedModulesAreExposedToRules(t *testing.T) {
+	const remote = "git::https://example.com/org/terraform-modules.git"
+	tests := []struct {
+		address        string
+		key            string
+		source         string
+		resolvedSource string
+		root           string
+	}{
+		{
+			address:        `module.app["blue"].module.policy.terraform_data.policy`,
+			key:            "app.policy",
+			source:         "../policy",
+			resolvedSource: "./modules/policy",
+			root:           "app",
+		},
+		{
+			address:        `module.app["green"].module.bucket[1].terraform_data.bucket`,
+			key:            "app.bucket",
+			source:         "./bucket",
+			resolvedSource: "./modules/app/bucket",
+			root:           "app",
+		},
+		{
+			address:        "module.remote.module.sibling.terraform_data.sibling",
+			key:            "remote.sibling",
+			source:         "../sibling",
+			resolvedSource: remote + "//modules/sibling?ref=v1.0.0",
+			root:           "remote",
+		},
+		{
+			address:        "module.remote.module.inner.terraform_data.inner",
+			key:            "remote.inner",
+			source:         "./inner",
+			resolvedSource: remote + "//modules/outer/inner?ref=v1.0.0",
+			root:           "remote",
+		},
+	}
+	d := Deployment{
+		PlanFile:      "./testdata/nested/plan.json",
+		ModulesFile:   "./testdata/nested/modules.json",
+		DisableStdOut: true,
+		Rules: []Rule{
+			func(r tfresources.Resource) Result {
+				return Result{Name: "nested modules", Valid: true}
+			},
+		},
+	}
+	d.Scan()
+
+	resources := make(map[string]tfresources.Resource)
+	for _, res := range d.Results {
+		resources[res.Resource.Planned.Address] = res.Resource
+	}
+	if root, found := resources["terraform_data.root"]; !found || root.Module.Key != "" {
+		t.Errorf("Test Error -- expected terraform_data.root to be linked to no module, got %+v", root.Module)
+	}
+	for _, tt := range tests {
+		r, found := resources[tt.address]
+		if !found {
+			t.Errorf("Test Error -- expected a result for %s", tt.address)
+			continue
+		}
+		if r.Module.Key != tt.key || r.Module.Source != tt.source || r.Module.ResolvedSource != tt.resolvedSource {
+			t.Errorf("Test Error -- %s:\ngot: key %q, source %q, resolved source %q\n::\nwant: key %q, source %q, resolved source %q\n",
+				tt.address, r.Module.Key, r.Module.Source, r.Module.ResolvedSource, tt.key, tt.source, tt.resolvedSource)
+		}
+		if r.Module.Parent == nil || r.Module.Root().Key != tt.root {
+			t.Errorf("Test Error -- expected %s to lead back to the %s module, got %+v", tt.address, tt.root, r.Module.Parent)
+		}
+	}
+}

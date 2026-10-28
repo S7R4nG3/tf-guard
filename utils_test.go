@@ -49,6 +49,41 @@ func TestStringResultFormatter(t *testing.T) {
 			},
 		},
 	}
+	moduleResults := []Result{
+		{
+			Name:     "failing rule within a nested module",
+			Valid:    false,
+			Severity: Severity.Major,
+			Resource: tfresources.Resource{
+				Module: tfresources.Module{
+					Key:             "iam_role.policy",
+					Source:          "../iam-policy",
+					ResolvedSource:  "registry.terraform.io/org/iam/aws//modules/iam-policy",
+					ResolvedVersion: "5.17.0",
+				},
+				Planned: tfjson.StateResource{
+					Address: "module.iam_role.module.policy.aws_iam_policy.this",
+					Type:    "aws_iam_policy",
+				},
+			},
+		},
+		{
+			Name:     "failing rule within a remote module",
+			Valid:    false,
+			Severity: Severity.Major,
+			Resource: tfresources.Resource{
+				Module: tfresources.Module{
+					Key:            "remote",
+					Source:         "git::https://example.com/repo.git?ref=v1",
+					ResolvedSource: "git::https://example.com/repo.git?ref=v1",
+				},
+				Planned: tfjson.StateResource{
+					Address: "module.remote.aws_s3_bucket.this",
+					Type:    "aws_s3_bucket",
+				},
+			},
+		},
+	}
 	tests := []struct {
 		name       string
 		deployment Deployment
@@ -101,6 +136,26 @@ func TestStringResultFormatter(t *testing.T) {
 				VerboseStdOut: true,
 			},
 			notWant: []string{"Remediation:"},
+		},
+		{
+			name: "A nested module should be shown by its resolved source, version, and declared source.",
+			deployment: Deployment{
+				Results: moduleResults[:1],
+			},
+			want: []string{
+				"Module: iam_role.policy",
+				"Source: registry.terraform.io/org/iam/aws//modules/iam-policy",
+				"Declared Source: ../iam-policy",
+				"Version: 5.17.0",
+			},
+		},
+		{
+			name: "A module whose source needs no resolving should omit its declared source.",
+			deployment: Deployment{
+				Results: moduleResults[1:],
+			},
+			want:    []string{"Source: git::https://example.com/repo.git?ref=v1"},
+			notWant: []string{"Declared Source:", "Version:"},
 		},
 	}
 

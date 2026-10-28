@@ -98,11 +98,14 @@ func documentAllowsWildcardActions(document any) bool {
 	return false
 }
 
+// A nested module declared with a local path inside a registry module records
+// only that relative path as its Source, so ResolvedSource is checked instead to
+// catch resources sourced from anywhere within a registry module's package.
 func RuleModulesMustBeSourcedFromRegistry(r tfresources.Resource) tfGuard.Result {
 	name := "Modules must be sourced from the Terraform Registry."
 	severity := tfGuard.Severity.Critical
-	if r.Module.Source != "" {
-		if !strings.Contains(r.Module.Source, "registry.terraform.io") {
+	if r.Module.ResolvedSource != "" {
+		if !strings.Contains(r.Module.ResolvedSource, "registry.terraform.io") {
 			return tfGuard.Result{
 				Name:     name,
 				Severity: severity,
